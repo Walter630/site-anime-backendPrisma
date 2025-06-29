@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/**
+ * ---------- TIPOS DE USUÁRIO ----------
+ */
+
+model TiposUsuario {
+  id        String @id @default(cuid())
+  nome      String @unique // ex.: ADMIN, EDITOR, LEITOR
+  descricao String
+  usuarios  User[] // lista de usuários desse tipo
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? @map("deleted_at") @db.DateTime()
+  ativado   Boolean   @default(true) @db.TinyInt()
+
+  @@map("tipos_usuarios")
+}
+
+/**
+ * ---------- USUÁRIOS ----------
+ */
+
+model User {
+  id        String   @id @default(cuid())
+  nome      String   @unique @db.VarChar(100)
+  email     String   @unique @db.VarChar(100)
+  password  String   @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime()
+  deletedAt DateTime @map("deleted_at") @db.DateTime()
+  ativado   Boolean  @default(true) @db.TinyInt()
+
+  tipoUsuarioId String?       @map("tipo_usuario_id") @db.VarChar(255)
+  tipoUsuario   TiposUsuario? @relation(fields: [tipoUsuarioId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  mangas       Mangas[]
+  animes       Animes[]
+  historicos   Historico[]
+  favoritos    Favorito[]
+  comentarios  Comentario[]
+  notificacoes Notificacao[]
+
+  @@map("user")
+}
+
+/**
+ * ---------- MANGÁS ----------
+ */
+
+model Mangas {
+  id          String @id @default(cuid())
+  title       String @unique @db.VarChar(255)
+  description String
+  image       String
+
+  userId String? // <-- alterado (admin removido)
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  generos   MangasGenero[]
+  favoritos Favorito[]
+
+  createdAt DateTime @default(now()) // para auditoria
+  updatedAt DateTime @updatedAt
+
+  @@map("mangas")
+}
+
+/**
+ * ---------- ANIMES ----------
+ */
+
+model Animes {
+  id          String @id @default(cuid())
+  title       String @unique @db.VarChar(255)
+  description String
+  image       String
+  episodios   Int
+
+  userId String // ← único “dono” agora
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  generos     AnimesGenero[]
+  favoritos   Favorito[]
+  comentarios Comentario[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt // ← @updatedAt corrige o timestamp
+
+  @@map("animes")
+}
+
+/**
+ * ---------- DEMAIS MODELOS (inalterados) ----------
+ */
+
+model Historico {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  userId      String
+  createdAt   DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("historicos")
+}
+
+model Favorito {
+  id      String  @id @default(cuid())
+  userId  String
+  animeId String?
+  mangaId String?
+
+  user  User    @relation(fields: [userId], references: [id])
+  anime Animes? @relation(fields: [animeId], references: [id])
+  manga Mangas? @relation(fields: [mangaId], references: [id])
+
+  @@map("favoritos")
+}
+
+model Comentario {
+  id        String   @id @default(cuid())
+  texto     String
+  createdAt DateTime @default(now())
+  userId    String
+  animeId   String?
+
+  user  User    @relation(fields: [userId], references: [id])
+  anime Animes? @relation(fields: [animeId], references: [id])
+
+  @@map("comentarios")
+}
+
+model Genero {
+  id     String         @id @default(cuid())
+  nome   String
+  animes AnimesGenero[]
+  mangas MangasGenero[]
+
+  @@map("generos")
+}
+
+model AnimesGenero {
+  animeId  String
+  generoId String
+
+  anime  Animes @relation(fields: [animeId], references: [id])
+  genero Genero @relation(fields: [generoId], references: [id])
+
+  @@id([animeId, generoId])
+  @@map("animes_generos")
+}
+
+model MangasGenero {
+  mangaId  String
+  generoId String
+
+  manga  Mangas @relation(fields: [mangaId], references: [id])
+  genero Genero @relation(fields: [generoId], references: [id])
+
+  @@id([mangaId, generoId])
+  @@map("mangas_generos")
+}
+
+model Notificacao {
+  id        String   @id @default(cuid())
+  mensagem  String
+  lida      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  userId    String
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("notificacoes")
+}
