@@ -11,7 +11,7 @@ export class AnimesServices {
         try{
             const criar = await this.animeRepo.create(anime);
             if(!criar.adminId){
-                throw new Error('jsjsjs')
+                throw new Error('userId obrigatório');
             }
             getIO().emit('notification', {
                 type: 'anime_created',
@@ -23,14 +23,9 @@ export class AnimesServices {
                     description: criar.description,
                 }
             });
+            console.log(criar)
             return Animes.build({
-                id: criar.id,
-                title: criar.title,
-                image: criar.image,
-                description: criar.description,
-                episodios: criar.episodios,
-                dataCreateAt: criar.dataCreateAt,
-                dataUpdateAt: criar.dataUpdateAt
+               ...criar
             });
         }catch(err){
             console.log(err)

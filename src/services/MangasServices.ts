@@ -108,4 +108,25 @@ export class MangasServices {
             throw new Error('Error updating manga');
         }
     }
+
+    async deletarManga(id: string, adminId: string): Promise<void> {
+        try {
+            const manga = await this.mangaRepo.buscarMangaId(id);
+            if (!manga) {
+                throw new Error('Manga not found');
+            }
+            if (!manga.adminId ) {
+                throw new Error('Unauthorized to delete this manga');
+            }
+            await this.mangaRepo.deletarManga(id);
+            getIO().emit('notification', {
+                type: 'manga_deleted',
+                message: 'Um manga foi deletado',
+                data: { id }
+            });
+        } catch (err) {
+            console.log(err);
+            throw new Error('Error deleting manga');
+        }
+    }
 }

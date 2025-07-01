@@ -8,6 +8,14 @@ app.use(express.json());
 
 const httpServer = createServer(app);
 
+// Importando as rotas
+import { Api } from "./api/routes/Api";
+import { AnimesApi } from "./api/routes/AnimesRota";
+
+// Inicializando a API
+const api = new Api();
+AnimesApi.build(api);
+
 // inicializa e configura todos os eventos ↓
 initSocket(httpServer);
 
