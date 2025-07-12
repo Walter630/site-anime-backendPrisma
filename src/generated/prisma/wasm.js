@@ -191,16 +191,6 @@ exports.Prisma.GeneroScalarFieldEnum = {
   nome: 'nome'
 };
 
-exports.Prisma.AnimesGeneroScalarFieldEnum = {
-  animeId: 'animeId',
-  generoId: 'generoId'
-};
-
-exports.Prisma.MangasGeneroScalarFieldEnum = {
-  mangaId: 'mangaId',
-  generoId: 'generoId'
-};
-
 exports.Prisma.NotificacaoScalarFieldEnum = {
   id: 'id',
   mensagem: 'mensagem',
@@ -275,16 +265,6 @@ exports.Prisma.GeneroOrderByRelevanceFieldEnum = {
   nome: 'nome'
 };
 
-exports.Prisma.AnimesGeneroOrderByRelevanceFieldEnum = {
-  animeId: 'animeId',
-  generoId: 'generoId'
-};
-
-exports.Prisma.MangasGeneroOrderByRelevanceFieldEnum = {
-  mangaId: 'mangaId',
-  generoId: 'generoId'
-};
-
 exports.Prisma.NotificacaoOrderByRelevanceFieldEnum = {
   id: 'id',
   mensagem: 'mensagem',
@@ -301,8 +281,6 @@ exports.Prisma.ModelName = {
   Favorito: 'Favorito',
   Comentario: 'Comentario',
   Genero: 'Genero',
-  AnimesGenero: 'AnimesGenero',
-  MangasGenero: 'MangasGenero',
   Notificacao: 'Notificacao'
 };
 

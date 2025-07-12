@@ -1,4 +1,4 @@
-import { User } from "./User";
+import User from "./User";
 import { Animes } from "./Animes";
 
 export type ComentarioProps = {

@@ -1,6 +1,7 @@
 import { Mangas } from "../domain/Mangas";
 import { MangasServices } from "../services/MangasServices";
 import { Request, Response } from "express";
+import { getIO } from "../utils/sockets/sokec";
 
 export class MangasController {
     constructor(private readonly mangaService: MangasServices) {}
@@ -10,6 +11,18 @@ export class MangasController {
             if (!mangas || mangas.length === 0) {
                 return res.status(404).json({ error: 'Nenhum manga encontrado' });
             }
+            getIO().emit('notification', {
+                type: 'manga_list',
+                message: 'Lista de mangas atualizada',
+                data: {
+                    mangas: mangas.map(manga => ({
+                        id: manga.id,
+                        title: manga.title,
+                        image: manga.image,
+                        description: manga.description,
+                    })),
+                }
+            });
             return res.status(200).json(mangas);
         } catch (error) {
             console.error(error);
@@ -27,7 +40,18 @@ export class MangasController {
             return res.status(500).json({ error: 'Erro ao criar manga' });
         }
     }
-
+    async atualizarManga(req: Request, res: Response): Promise<Mangas | Response> {
+        try {
+            const { id } = req.params;
+            const { title, description, image } = req.body;
+            const manga = Mangas.create(title, description, image);
+            const updatedManga = await this.mangaService.atualizarManga(id, manga);
+            return res.status(200).json(updatedManga);
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Erro ao atualizar manga' });
+        }
+    }
     async buscarMangaId(req: Request, res: Response): Promise<Mangas | Response> {
         const { id } = req.params;
         try {

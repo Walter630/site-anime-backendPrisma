@@ -11,7 +11,7 @@ if(!process.env.TOKEN_SECRET || !process.env.TOKEN_REFRESH_SECRET) {
 
 const TOKEN_SECRET: jwt.Secret = process.env.TOKEN_SECRET;
 const TOKEN_REFRESH_SECRET: jwt.Secret = process.env.TOKEN_REFRESH_SECRET;
-const TOKEN_EXPIRES_IN = (process.env.TOKEN_EXPIRES_IN || '1m') as StringValue;
+const TOKEN_EXPIRES_IN = (process.env.TOKEN_EXPIRES_IN || '5m') as StringValue;
 const TOKEN_REFRESH_EXPIRES_IN = (process.env.TOKEN_REFRESH_EXPIRES_IN || '7d') as StringValue;
 
 interface payloadToken{

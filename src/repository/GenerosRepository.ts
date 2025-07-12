@@ -48,9 +48,9 @@ export class GenerosRepository {
     }
 }
 
-    async atualizarGenero(id: string, genero: Generos): Promise<void> {
+    async atualizarGenero(id: string, genero: Generos): Promise<Generos | null> {
         try{
-           await prisma.genero.update({
+           const atualizarGenero = await prisma.genero.update({
                 where: {
                     id: id
                 },
@@ -58,6 +58,11 @@ export class GenerosRepository {
                     nome: genero.nome
                 }
             });
+            if(!atualizarGenero) throw new Error("Genero não encontrado")
+            return Generos.build({
+                id: atualizarGenero.id,
+                nome: atualizarGenero.nome
+            })
     }catch(err){
         console.log(err)
         throw new Error("Erro ao atualizar genero")

@@ -4,41 +4,26 @@ import bcrypt from "bcrypt";
 import { createAcessToken, refreshToken } from "../utils/token/jwtToken";
 import { LoginResult } from "../dto/LoginResultDTO";
 const SOUNT_ROUNDS = 10
+
 export class UsuarioServices {
     private usuarioRepo: UserRepository;
-    constructor(usuarioRepo: UserRepository) {
-        this.usuarioRepo = usuarioRepo;
+    constructor(private readonly usuaroRepo: UserRepository) {
+        this.usuarioRepo = usuaroRepo;
     }
 
     async criarUsuario(usuario: User) {
         try{
-            const novaSenha = await bcrypt.hash(usuario.password, SOUNT_ROUNDS);
-            const usuarioComSenhaHash: User = {
-                ...usuario,
-                password: novaSenha,
-                id: usuario.id,
-                nome: usuario.nome,
-                email: usuario.email,
-                createdAt: usuario.createdAt,
-                updatedAt: usuario.updatedAt,
-                // adicione outras propriedades obrigatórias do tipo User aqui, se houver
-            } as User;
-                        
-            const usuarioCriado = await this.usuarioRepo.create(usuarioComSenhaHash);
-            if (usuarioCriado && usuarioCriado.id === usuario.id){
-                throw new Error('Usuario ja existe');
-            }
-
-            if(usuario.nome.trim().length >= 3) {
-                throw new Error("Pode ser criado")
-            }
-            
-            if (usuarioCriado) return usuarioCriado;
-                return null;
-            } catch (error) {
-                console.error(error);
-                throw new Error('Erro ao criar usuário');
-        }
+            const senhaHash = await bcrypt.hash(usuario.password, SOUNT_ROUNDS);
+            const usuarioCriado = await this.usuarioRepo.create({
+            ...usuario,
+            password: senhaHash,
+            } as User);
+        
+            return usuarioCriado;      // ✅ só um create, sem throws extras
+      } catch (error) {
+        console.error(error);
+        throw new Error('Erro ao criar usuário');
+      }
     }
 
     async login(email: string, password: string): Promise<LoginResult> {
@@ -52,10 +37,11 @@ export class UsuarioServices {
             if(!senhaCript){
                 throw new Error('Senha incorreta');
             }
-
+            
+                        
             const gerarToken = createAcessToken({ id: usuario.id, email: usuario.email })
             const gerarRefreshToken = refreshToken({id: usuario.id, email: usuario.email})
-
+           
             return {
                 user: usuario,
                 gerarToken,
@@ -80,9 +66,11 @@ export class UsuarioServices {
     }
 
     async buscarUsuario(id: string): Promise<User | null>{
-        try{
-            return await this.usuarioRepo.buscarPorId(id)
-        }catch(err){
+        try {
+            const user = await this.usuarioRepo.buscarPorId(id);
+            if (!user) throw new Error("Usuário não encontrado ou desativado");
+            return user;
+        } catch (err) {
             console.log(err)
             throw new Error('Erro ao buscar Usuario por id')
         }
@@ -99,12 +87,11 @@ export class UsuarioServices {
         }
     }
 
-    async atuaizarUser(id: string, user: User): Promise<void> {
+    async atuaizarUser(id: string, user: User): Promise<User | null> {
         try{
-            await this.usuarioRepo.atualizar(id, user)
-            if(!user.ativado == true) {
-                throw new Error('impossivel atualizar')
-            }
+            const atualizado = await this.usuarioRepo.atualizar(id, user);
+            return atualizado as unknown as User;
+
         }catch(err){
             console.log(err)
             throw new Error('Erro ao atualizar usuario')

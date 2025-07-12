@@ -1,32 +1,51 @@
 import { PrismaClient } from "../generated/prisma";
 import User from "../domain/User";
 import TiposUsuario from '../domain/TipoUsuario';
+import { randomUUID } from "crypto";
 
+const prisma = new PrismaClient()
 export class UserRepository {
-    private constructor(private readonly prisma: PrismaClient) {}
-     public static create(prisma: PrismaClient): UserRepository {
-        return new UserRepository(prisma);
+    private prisma: PrismaClient;
+    constructor(prisma: PrismaClient) {
+        this.prisma = prisma;
     }
+
     async create(user: User): Promise<User> {
         // Create a new user in the database
         try{
+            let tipoUsuarioId = user.tipo?.id;
+
+            // Se não veio o id, tente buscar pelo nome do tipo
+            if (!tipoUsuarioId && user.tipo?.nome) {
+                const tipo = await this.prisma.tiposUsuario.findUnique({
+                    where: { nome: user.tipo.nome }
+                });
+                if (!tipo) throw new Error("Tipo de usuário não encontrado");
+                tipoUsuarioId = tipo.id;
+            }
+
+            if (!tipoUsuarioId) throw new Error("tipoUsuarioId é obrigatório e deve ser válido");
+
             const userCreate = await this.prisma.user.create({
                 data: {
-                    id: user.id,
+                    id: user.id || randomUUID().toString(),
                     nome: user.nome,
-                    email: user.email,
-                    password: user.password,
-                    deletedAt: new Date() || null, // or new Date() if you want to set a date
+                    email: user.email || '',
+                    password: user.password || '',
+                    ativado: user.ativado ?? true,
+                    tipoUsuarioId: tipoUsuarioId,
+                    createdAt: new Date(),
+                    updatedAt: new Date(),
                 },
             });
             return User.build({
                 ...userCreate,
+                id: userCreate.id,
                 tipo: user.tipo ? TiposUsuario.build(user.tipo) : undefined,
-                updatedAt: userCreate.updatedAt || new Date(),
             })
         }catch(error){
             console.log(error)
-            throw new Error( "Erro ao criar usuário"+error)
+            throw new Error( "Erro ao criar usuário: "+error)
         }
     }
 
@@ -38,7 +57,8 @@ export class UserRepository {
                 id: linha.id,
                 nome: linha.nome,
                 email: linha.email,
-                password: linha.password
+                password: linha.password,
+                ativado: linha.ativado,
             }))
         } catch (error) {
             console.log(error)
@@ -54,22 +74,29 @@ async buscarPorId(userId: string): Promise<User | null> {
             },
             include: { tipoUsuario: true },
         });
-
-        if (!encontrado || !encontrado.ativado || encontrado.deletedAt) return null;
+        console.log(encontrado)
+        const isAtivado = Boolean(encontrado?.ativado);
+        if (!encontrado || !isAtivado || encontrado.deletedAt) return null;
 
         return User.build({
             id: encontrado.id,
             nome: encontrado.nome,
             email: encontrado.email,
             password: encontrado.password,
+            ativado: encontrado.ativado,
+            createdAt: encontrado.createdAt,
+            updatedAt: encontrado.updatedAt,
+            deletedAt: encontrado.deletedAt ?? null,
             tipo: encontrado.tipoUsuario
                 ? TiposUsuario.build({
                     id: encontrado.tipoUsuario.id,
                     nome: encontrado.tipoUsuario.nome,
-                    descricao: encontrado.tipoUsuario.descricao
+                    descricao: encontrado.tipoUsuario.descricao ?? '',
+                    createdAt: encontrado.tipoUsuario.createdAt,
+                    updatedAt: encontrado.tipoUsuario.updatedAt,
+                    ativado: encontrado.tipoUsuario.ativado,
                 })
                 : undefined,
-            updatedAt: encontrado.updatedAt || new Date(),
         });
     } catch (err) {
         console.error(err);
@@ -83,6 +110,7 @@ async buscarPorId(userId: string): Promise<User | null> {
                 where: {id: userId},
                 data: {
                     ativado: false,
+                    deletedAt: new Date()
                 },
             })
             
@@ -117,7 +145,10 @@ async buscarPorId(userId: string): Promise<User | null> {
 
     async buscarEmail(email: string): Promise<User> {
         try{
-            const emailVeri = await this.prisma.user.findUnique({where: {email: email}})
+            const emailVeri = await prisma.user.findUnique({
+                where: { email: "admin@email.com" },
+                include: { tipoUsuario: true }, // nome correto da relação
+              });
             if (!emailVeri)  throw new Error('email inexistete')
             return User.build({
                 id: emailVeri.id,

@@ -54,16 +54,6 @@ export type Comentario = $Result.DefaultSelection<Prisma.$ComentarioPayload>
  */
 export type Genero = $Result.DefaultSelection<Prisma.$GeneroPayload>
 /**
- * Model AnimesGenero
- * 
- */
-export type AnimesGenero = $Result.DefaultSelection<Prisma.$AnimesGeneroPayload>
-/**
- * Model MangasGenero
- * 
- */
-export type MangasGenero = $Result.DefaultSelection<Prisma.$MangasGeneroPayload>
-/**
  * Model Notificacao
  * 
  */
@@ -273,26 +263,6 @@ export class PrismaClient<
     * ```
     */
   get genero(): Prisma.GeneroDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.animesGenero`: Exposes CRUD operations for the **AnimesGenero** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more AnimesGeneros
-    * const animesGeneros = await prisma.animesGenero.findMany()
-    * ```
-    */
-  get animesGenero(): Prisma.AnimesGeneroDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.mangasGenero`: Exposes CRUD operations for the **MangasGenero** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more MangasGeneros
-    * const mangasGeneros = await prisma.mangasGenero.findMany()
-    * ```
-    */
-  get mangasGenero(): Prisma.MangasGeneroDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.notificacao`: Exposes CRUD operations for the **Notificacao** model.
@@ -751,8 +721,6 @@ export namespace Prisma {
     Favorito: 'Favorito',
     Comentario: 'Comentario',
     Genero: 'Genero',
-    AnimesGenero: 'AnimesGenero',
-    MangasGenero: 'MangasGenero',
     Notificacao: 'Notificacao'
   };
 
@@ -772,7 +740,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "tiposUsuario" | "user" | "mangas" | "animes" | "historico" | "favorito" | "comentario" | "genero" | "animesGenero" | "mangasGenero" | "notificacao"
+      modelProps: "tiposUsuario" | "user" | "mangas" | "animes" | "historico" | "favorito" | "comentario" | "genero" | "notificacao"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1304,138 +1272,6 @@ export namespace Prisma {
           }
         }
       }
-      AnimesGenero: {
-        payload: Prisma.$AnimesGeneroPayload<ExtArgs>
-        fields: Prisma.AnimesGeneroFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.AnimesGeneroFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AnimesGeneroPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.AnimesGeneroFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AnimesGeneroPayload>
-          }
-          findFirst: {
-            args: Prisma.AnimesGeneroFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AnimesGeneroPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.AnimesGeneroFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AnimesGeneroPayload>
-          }
-          findMany: {
-            args: Prisma.AnimesGeneroFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AnimesGeneroPayload>[]
-          }
-          create: {
-            args: Prisma.AnimesGeneroCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AnimesGeneroPayload>
-          }
-          createMany: {
-            args: Prisma.AnimesGeneroCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.AnimesGeneroDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AnimesGeneroPayload>
-          }
-          update: {
-            args: Prisma.AnimesGeneroUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AnimesGeneroPayload>
-          }
-          deleteMany: {
-            args: Prisma.AnimesGeneroDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.AnimesGeneroUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.AnimesGeneroUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AnimesGeneroPayload>
-          }
-          aggregate: {
-            args: Prisma.AnimesGeneroAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateAnimesGenero>
-          }
-          groupBy: {
-            args: Prisma.AnimesGeneroGroupByArgs<ExtArgs>
-            result: $Utils.Optional<AnimesGeneroGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.AnimesGeneroCountArgs<ExtArgs>
-            result: $Utils.Optional<AnimesGeneroCountAggregateOutputType> | number
-          }
-        }
-      }
-      MangasGenero: {
-        payload: Prisma.$MangasGeneroPayload<ExtArgs>
-        fields: Prisma.MangasGeneroFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.MangasGeneroFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MangasGeneroPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.MangasGeneroFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MangasGeneroPayload>
-          }
-          findFirst: {
-            args: Prisma.MangasGeneroFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MangasGeneroPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.MangasGeneroFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MangasGeneroPayload>
-          }
-          findMany: {
-            args: Prisma.MangasGeneroFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MangasGeneroPayload>[]
-          }
-          create: {
-            args: Prisma.MangasGeneroCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MangasGeneroPayload>
-          }
-          createMany: {
-            args: Prisma.MangasGeneroCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.MangasGeneroDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MangasGeneroPayload>
-          }
-          update: {
-            args: Prisma.MangasGeneroUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MangasGeneroPayload>
-          }
-          deleteMany: {
-            args: Prisma.MangasGeneroDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.MangasGeneroUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.MangasGeneroUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MangasGeneroPayload>
-          }
-          aggregate: {
-            args: Prisma.MangasGeneroAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMangasGenero>
-          }
-          groupBy: {
-            args: Prisma.MangasGeneroGroupByArgs<ExtArgs>
-            result: $Utils.Optional<MangasGeneroGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.MangasGeneroCountArgs<ExtArgs>
-            result: $Utils.Optional<MangasGeneroCountAggregateOutputType> | number
-          }
-        }
-      }
       Notificacao: {
         payload: Prisma.$NotificacaoPayload<ExtArgs>
         fields: Prisma.NotificacaoFieldRefs
@@ -1594,8 +1430,6 @@ export namespace Prisma {
     favorito?: FavoritoOmit
     comentario?: ComentarioOmit
     genero?: GeneroOmit
-    animesGenero?: AnimesGeneroOmit
-    mangasGenero?: MangasGeneroOmit
     notificacao?: NotificacaoOmit
   }
 
@@ -1822,7 +1656,7 @@ export namespace Prisma {
    * MangasCountOutputType without action
    */
   export type MangasCountOutputTypeCountGenerosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MangasGeneroWhereInput
+    where?: GeneroWhereInput
   }
 
   /**
@@ -1864,7 +1698,7 @@ export namespace Prisma {
    * AnimesCountOutputType without action
    */
   export type AnimesCountOutputTypeCountGenerosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AnimesGeneroWhereInput
+    where?: GeneroWhereInput
   }
 
   /**
@@ -1911,14 +1745,14 @@ export namespace Prisma {
    * GeneroCountOutputType without action
    */
   export type GeneroCountOutputTypeCountAnimesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AnimesGeneroWhereInput
+    where?: AnimesWhereInput
   }
 
   /**
    * GeneroCountOutputType without action
    */
   export type GeneroCountOutputTypeCountMangasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MangasGeneroWhereInput
+    where?: MangasWhereInput
   }
 
 
@@ -2074,7 +1908,7 @@ export namespace Prisma {
   export type TiposUsuarioGroupByOutputType = {
     id: string
     nome: string
-    descricao: string
+    descricao: string | null
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
@@ -2136,7 +1970,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       nome: string
-      descricao: string
+      descricao: string | null
       createdAt: Date
       updatedAt: Date
       deletedAt: Date | null
@@ -3067,7 +2901,7 @@ export namespace Prisma {
     password: string
     createdAt: Date
     updatedAt: Date
-    deletedAt: Date
+    deletedAt: Date | null
     ativado: boolean
     tipoUsuarioId: string | null
     _count: UserCountAggregateOutputType | null
@@ -3153,7 +2987,7 @@ export namespace Prisma {
       password: string
       createdAt: Date
       updatedAt: Date
-      deletedAt: Date
+      deletedAt: Date | null
       ativado: boolean
       tipoUsuarioId: string | null
     }, ExtArgs["result"]["user"]>
@@ -4275,7 +4109,7 @@ export namespace Prisma {
     name: "Mangas"
     objects: {
       user: Prisma.$UserPayload<ExtArgs> | null
-      generos: Prisma.$MangasGeneroPayload<ExtArgs>[]
+      generos: Prisma.$GeneroPayload<ExtArgs>[]
       favoritos: Prisma.$FavoritoPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -4627,7 +4461,7 @@ export namespace Prisma {
   export interface Prisma__MangasClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends Mangas$userArgs<ExtArgs> = {}>(args?: Subset<T, Mangas$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    generos<T extends Mangas$generosArgs<ExtArgs> = {}>(args?: Subset<T, Mangas$generosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    generos<T extends Mangas$generosArgs<ExtArgs> = {}>(args?: Subset<T, Mangas$generosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GeneroPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     favoritos<T extends Mangas$favoritosArgs<ExtArgs> = {}>(args?: Subset<T, Mangas$favoritosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -5031,23 +4865,23 @@ export namespace Prisma {
    */
   export type Mangas$generosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MangasGenero
+     * Select specific fields to fetch from the Genero
      */
-    select?: MangasGeneroSelect<ExtArgs> | null
+    select?: GeneroSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MangasGenero
+     * Omit specific fields from the Genero
      */
-    omit?: MangasGeneroOmit<ExtArgs> | null
+    omit?: GeneroOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    where?: MangasGeneroWhereInput
-    orderBy?: MangasGeneroOrderByWithRelationInput | MangasGeneroOrderByWithRelationInput[]
-    cursor?: MangasGeneroWhereUniqueInput
+    include?: GeneroInclude<ExtArgs> | null
+    where?: GeneroWhereInput
+    orderBy?: GeneroOrderByWithRelationInput | GeneroOrderByWithRelationInput[]
+    cursor?: GeneroWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: MangasGeneroScalarFieldEnum | MangasGeneroScalarFieldEnum[]
+    distinct?: GeneroScalarFieldEnum | GeneroScalarFieldEnum[]
   }
 
   /**
@@ -5348,7 +5182,7 @@ export namespace Prisma {
     name: "Animes"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-      generos: Prisma.$AnimesGeneroPayload<ExtArgs>[]
+      generos: Prisma.$GeneroPayload<ExtArgs>[]
       favoritos: Prisma.$FavoritoPayload<ExtArgs>[]
       comentarios: Prisma.$ComentarioPayload<ExtArgs>[]
     }
@@ -5702,7 +5536,7 @@ export namespace Prisma {
   export interface Prisma__AnimesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    generos<T extends Animes$generosArgs<ExtArgs> = {}>(args?: Subset<T, Animes$generosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    generos<T extends Animes$generosArgs<ExtArgs> = {}>(args?: Subset<T, Animes$generosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GeneroPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     favoritos<T extends Animes$favoritosArgs<ExtArgs> = {}>(args?: Subset<T, Animes$favoritosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavoritoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     comentarios<T extends Animes$comentariosArgs<ExtArgs> = {}>(args?: Subset<T, Animes$comentariosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ComentarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -6089,23 +5923,23 @@ export namespace Prisma {
    */
   export type Animes$generosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AnimesGenero
+     * Select specific fields to fetch from the Genero
      */
-    select?: AnimesGeneroSelect<ExtArgs> | null
+    select?: GeneroSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AnimesGenero
+     * Omit specific fields from the Genero
      */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
+    omit?: GeneroOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    where?: AnimesGeneroWhereInput
-    orderBy?: AnimesGeneroOrderByWithRelationInput | AnimesGeneroOrderByWithRelationInput[]
-    cursor?: AnimesGeneroWhereUniqueInput
+    include?: GeneroInclude<ExtArgs> | null
+    where?: GeneroWhereInput
+    orderBy?: GeneroOrderByWithRelationInput | GeneroOrderByWithRelationInput[]
+    cursor?: GeneroWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: AnimesGeneroScalarFieldEnum | AnimesGeneroScalarFieldEnum[]
+    distinct?: GeneroScalarFieldEnum | GeneroScalarFieldEnum[]
   }
 
   /**
@@ -9182,8 +9016,8 @@ export namespace Prisma {
   export type $GeneroPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Genero"
     objects: {
-      animes: Prisma.$AnimesGeneroPayload<ExtArgs>[]
-      mangas: Prisma.$MangasGeneroPayload<ExtArgs>[]
+      animes: Prisma.$AnimesPayload<ExtArgs>[]
+      mangas: Prisma.$MangasPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -9528,8 +9362,8 @@ export namespace Prisma {
    */
   export interface Prisma__GeneroClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    animes<T extends Genero$animesArgs<ExtArgs> = {}>(args?: Subset<T, Genero$animesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    mangas<T extends Genero$mangasArgs<ExtArgs> = {}>(args?: Subset<T, Genero$mangasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    animes<T extends Genero$animesArgs<ExtArgs> = {}>(args?: Subset<T, Genero$animesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnimesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    mangas<T extends Genero$mangasArgs<ExtArgs> = {}>(args?: Subset<T, Genero$mangasArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MangasPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9908,23 +9742,23 @@ export namespace Prisma {
    */
   export type Genero$animesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the AnimesGenero
+     * Select specific fields to fetch from the Animes
      */
-    select?: AnimesGeneroSelect<ExtArgs> | null
+    select?: AnimesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the AnimesGenero
+     * Omit specific fields from the Animes
      */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
+    omit?: AnimesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    where?: AnimesGeneroWhereInput
-    orderBy?: AnimesGeneroOrderByWithRelationInput | AnimesGeneroOrderByWithRelationInput[]
-    cursor?: AnimesGeneroWhereUniqueInput
+    include?: AnimesInclude<ExtArgs> | null
+    where?: AnimesWhereInput
+    orderBy?: AnimesOrderByWithRelationInput | AnimesOrderByWithRelationInput[]
+    cursor?: AnimesWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: AnimesGeneroScalarFieldEnum | AnimesGeneroScalarFieldEnum[]
+    distinct?: AnimesScalarFieldEnum | AnimesScalarFieldEnum[]
   }
 
   /**
@@ -9932,23 +9766,23 @@ export namespace Prisma {
    */
   export type Genero$mangasArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MangasGenero
+     * Select specific fields to fetch from the Mangas
      */
-    select?: MangasGeneroSelect<ExtArgs> | null
+    select?: MangasSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MangasGenero
+     * Omit specific fields from the Mangas
      */
-    omit?: MangasGeneroOmit<ExtArgs> | null
+    omit?: MangasOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    where?: MangasGeneroWhereInput
-    orderBy?: MangasGeneroOrderByWithRelationInput | MangasGeneroOrderByWithRelationInput[]
-    cursor?: MangasGeneroWhereUniqueInput
+    include?: MangasInclude<ExtArgs> | null
+    where?: MangasWhereInput
+    orderBy?: MangasOrderByWithRelationInput | MangasOrderByWithRelationInput[]
+    cursor?: MangasWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: MangasGeneroScalarFieldEnum | MangasGeneroScalarFieldEnum[]
+    distinct?: MangasScalarFieldEnum | MangasScalarFieldEnum[]
   }
 
   /**
@@ -9967,1806 +9801,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: GeneroInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model AnimesGenero
-   */
-
-  export type AggregateAnimesGenero = {
-    _count: AnimesGeneroCountAggregateOutputType | null
-    _min: AnimesGeneroMinAggregateOutputType | null
-    _max: AnimesGeneroMaxAggregateOutputType | null
-  }
-
-  export type AnimesGeneroMinAggregateOutputType = {
-    animeId: string | null
-    generoId: string | null
-  }
-
-  export type AnimesGeneroMaxAggregateOutputType = {
-    animeId: string | null
-    generoId: string | null
-  }
-
-  export type AnimesGeneroCountAggregateOutputType = {
-    animeId: number
-    generoId: number
-    _all: number
-  }
-
-
-  export type AnimesGeneroMinAggregateInputType = {
-    animeId?: true
-    generoId?: true
-  }
-
-  export type AnimesGeneroMaxAggregateInputType = {
-    animeId?: true
-    generoId?: true
-  }
-
-  export type AnimesGeneroCountAggregateInputType = {
-    animeId?: true
-    generoId?: true
-    _all?: true
-  }
-
-  export type AnimesGeneroAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which AnimesGenero to aggregate.
-     */
-    where?: AnimesGeneroWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of AnimesGeneros to fetch.
-     */
-    orderBy?: AnimesGeneroOrderByWithRelationInput | AnimesGeneroOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: AnimesGeneroWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` AnimesGeneros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` AnimesGeneros.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned AnimesGeneros
-    **/
-    _count?: true | AnimesGeneroCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: AnimesGeneroMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: AnimesGeneroMaxAggregateInputType
-  }
-
-  export type GetAnimesGeneroAggregateType<T extends AnimesGeneroAggregateArgs> = {
-        [P in keyof T & keyof AggregateAnimesGenero]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateAnimesGenero[P]>
-      : GetScalarType<T[P], AggregateAnimesGenero[P]>
-  }
-
-
-
-
-  export type AnimesGeneroGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AnimesGeneroWhereInput
-    orderBy?: AnimesGeneroOrderByWithAggregationInput | AnimesGeneroOrderByWithAggregationInput[]
-    by: AnimesGeneroScalarFieldEnum[] | AnimesGeneroScalarFieldEnum
-    having?: AnimesGeneroScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: AnimesGeneroCountAggregateInputType | true
-    _min?: AnimesGeneroMinAggregateInputType
-    _max?: AnimesGeneroMaxAggregateInputType
-  }
-
-  export type AnimesGeneroGroupByOutputType = {
-    animeId: string
-    generoId: string
-    _count: AnimesGeneroCountAggregateOutputType | null
-    _min: AnimesGeneroMinAggregateOutputType | null
-    _max: AnimesGeneroMaxAggregateOutputType | null
-  }
-
-  type GetAnimesGeneroGroupByPayload<T extends AnimesGeneroGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<AnimesGeneroGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof AnimesGeneroGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], AnimesGeneroGroupByOutputType[P]>
-            : GetScalarType<T[P], AnimesGeneroGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type AnimesGeneroSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    animeId?: boolean
-    generoId?: boolean
-    anime?: boolean | AnimesDefaultArgs<ExtArgs>
-    genero?: boolean | GeneroDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["animesGenero"]>
-
-
-
-  export type AnimesGeneroSelectScalar = {
-    animeId?: boolean
-    generoId?: boolean
-  }
-
-  export type AnimesGeneroOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"animeId" | "generoId", ExtArgs["result"]["animesGenero"]>
-  export type AnimesGeneroInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    anime?: boolean | AnimesDefaultArgs<ExtArgs>
-    genero?: boolean | GeneroDefaultArgs<ExtArgs>
-  }
-
-  export type $AnimesGeneroPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "AnimesGenero"
-    objects: {
-      anime: Prisma.$AnimesPayload<ExtArgs>
-      genero: Prisma.$GeneroPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      animeId: string
-      generoId: string
-    }, ExtArgs["result"]["animesGenero"]>
-    composites: {}
-  }
-
-  type AnimesGeneroGetPayload<S extends boolean | null | undefined | AnimesGeneroDefaultArgs> = $Result.GetResult<Prisma.$AnimesGeneroPayload, S>
-
-  type AnimesGeneroCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<AnimesGeneroFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: AnimesGeneroCountAggregateInputType | true
-    }
-
-  export interface AnimesGeneroDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AnimesGenero'], meta: { name: 'AnimesGenero' } }
-    /**
-     * Find zero or one AnimesGenero that matches the filter.
-     * @param {AnimesGeneroFindUniqueArgs} args - Arguments to find a AnimesGenero
-     * @example
-     * // Get one AnimesGenero
-     * const animesGenero = await prisma.animesGenero.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends AnimesGeneroFindUniqueArgs>(args: SelectSubset<T, AnimesGeneroFindUniqueArgs<ExtArgs>>): Prisma__AnimesGeneroClient<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one AnimesGenero that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {AnimesGeneroFindUniqueOrThrowArgs} args - Arguments to find a AnimesGenero
-     * @example
-     * // Get one AnimesGenero
-     * const animesGenero = await prisma.animesGenero.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends AnimesGeneroFindUniqueOrThrowArgs>(args: SelectSubset<T, AnimesGeneroFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AnimesGeneroClient<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first AnimesGenero that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AnimesGeneroFindFirstArgs} args - Arguments to find a AnimesGenero
-     * @example
-     * // Get one AnimesGenero
-     * const animesGenero = await prisma.animesGenero.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends AnimesGeneroFindFirstArgs>(args?: SelectSubset<T, AnimesGeneroFindFirstArgs<ExtArgs>>): Prisma__AnimesGeneroClient<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first AnimesGenero that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AnimesGeneroFindFirstOrThrowArgs} args - Arguments to find a AnimesGenero
-     * @example
-     * // Get one AnimesGenero
-     * const animesGenero = await prisma.animesGenero.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends AnimesGeneroFindFirstOrThrowArgs>(args?: SelectSubset<T, AnimesGeneroFindFirstOrThrowArgs<ExtArgs>>): Prisma__AnimesGeneroClient<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more AnimesGeneros that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AnimesGeneroFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all AnimesGeneros
-     * const animesGeneros = await prisma.animesGenero.findMany()
-     * 
-     * // Get first 10 AnimesGeneros
-     * const animesGeneros = await prisma.animesGenero.findMany({ take: 10 })
-     * 
-     * // Only select the `animeId`
-     * const animesGeneroWithAnimeIdOnly = await prisma.animesGenero.findMany({ select: { animeId: true } })
-     * 
-     */
-    findMany<T extends AnimesGeneroFindManyArgs>(args?: SelectSubset<T, AnimesGeneroFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a AnimesGenero.
-     * @param {AnimesGeneroCreateArgs} args - Arguments to create a AnimesGenero.
-     * @example
-     * // Create one AnimesGenero
-     * const AnimesGenero = await prisma.animesGenero.create({
-     *   data: {
-     *     // ... data to create a AnimesGenero
-     *   }
-     * })
-     * 
-     */
-    create<T extends AnimesGeneroCreateArgs>(args: SelectSubset<T, AnimesGeneroCreateArgs<ExtArgs>>): Prisma__AnimesGeneroClient<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many AnimesGeneros.
-     * @param {AnimesGeneroCreateManyArgs} args - Arguments to create many AnimesGeneros.
-     * @example
-     * // Create many AnimesGeneros
-     * const animesGenero = await prisma.animesGenero.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends AnimesGeneroCreateManyArgs>(args?: SelectSubset<T, AnimesGeneroCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a AnimesGenero.
-     * @param {AnimesGeneroDeleteArgs} args - Arguments to delete one AnimesGenero.
-     * @example
-     * // Delete one AnimesGenero
-     * const AnimesGenero = await prisma.animesGenero.delete({
-     *   where: {
-     *     // ... filter to delete one AnimesGenero
-     *   }
-     * })
-     * 
-     */
-    delete<T extends AnimesGeneroDeleteArgs>(args: SelectSubset<T, AnimesGeneroDeleteArgs<ExtArgs>>): Prisma__AnimesGeneroClient<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one AnimesGenero.
-     * @param {AnimesGeneroUpdateArgs} args - Arguments to update one AnimesGenero.
-     * @example
-     * // Update one AnimesGenero
-     * const animesGenero = await prisma.animesGenero.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends AnimesGeneroUpdateArgs>(args: SelectSubset<T, AnimesGeneroUpdateArgs<ExtArgs>>): Prisma__AnimesGeneroClient<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more AnimesGeneros.
-     * @param {AnimesGeneroDeleteManyArgs} args - Arguments to filter AnimesGeneros to delete.
-     * @example
-     * // Delete a few AnimesGeneros
-     * const { count } = await prisma.animesGenero.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends AnimesGeneroDeleteManyArgs>(args?: SelectSubset<T, AnimesGeneroDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more AnimesGeneros.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AnimesGeneroUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many AnimesGeneros
-     * const animesGenero = await prisma.animesGenero.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends AnimesGeneroUpdateManyArgs>(args: SelectSubset<T, AnimesGeneroUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one AnimesGenero.
-     * @param {AnimesGeneroUpsertArgs} args - Arguments to update or create a AnimesGenero.
-     * @example
-     * // Update or create a AnimesGenero
-     * const animesGenero = await prisma.animesGenero.upsert({
-     *   create: {
-     *     // ... data to create a AnimesGenero
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the AnimesGenero we want to update
-     *   }
-     * })
-     */
-    upsert<T extends AnimesGeneroUpsertArgs>(args: SelectSubset<T, AnimesGeneroUpsertArgs<ExtArgs>>): Prisma__AnimesGeneroClient<$Result.GetResult<Prisma.$AnimesGeneroPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of AnimesGeneros.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AnimesGeneroCountArgs} args - Arguments to filter AnimesGeneros to count.
-     * @example
-     * // Count the number of AnimesGeneros
-     * const count = await prisma.animesGenero.count({
-     *   where: {
-     *     // ... the filter for the AnimesGeneros we want to count
-     *   }
-     * })
-    **/
-    count<T extends AnimesGeneroCountArgs>(
-      args?: Subset<T, AnimesGeneroCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], AnimesGeneroCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a AnimesGenero.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AnimesGeneroAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends AnimesGeneroAggregateArgs>(args: Subset<T, AnimesGeneroAggregateArgs>): Prisma.PrismaPromise<GetAnimesGeneroAggregateType<T>>
-
-    /**
-     * Group by AnimesGenero.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AnimesGeneroGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends AnimesGeneroGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: AnimesGeneroGroupByArgs['orderBy'] }
-        : { orderBy?: AnimesGeneroGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, AnimesGeneroGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAnimesGeneroGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the AnimesGenero model
-   */
-  readonly fields: AnimesGeneroFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for AnimesGenero.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__AnimesGeneroClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    anime<T extends AnimesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AnimesDefaultArgs<ExtArgs>>): Prisma__AnimesClient<$Result.GetResult<Prisma.$AnimesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    genero<T extends GeneroDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GeneroDefaultArgs<ExtArgs>>): Prisma__GeneroClient<$Result.GetResult<Prisma.$GeneroPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the AnimesGenero model
-   */
-  interface AnimesGeneroFieldRefs {
-    readonly animeId: FieldRef<"AnimesGenero", 'String'>
-    readonly generoId: FieldRef<"AnimesGenero", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * AnimesGenero findUnique
-   */
-  export type AnimesGeneroFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which AnimesGenero to fetch.
-     */
-    where: AnimesGeneroWhereUniqueInput
-  }
-
-  /**
-   * AnimesGenero findUniqueOrThrow
-   */
-  export type AnimesGeneroFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which AnimesGenero to fetch.
-     */
-    where: AnimesGeneroWhereUniqueInput
-  }
-
-  /**
-   * AnimesGenero findFirst
-   */
-  export type AnimesGeneroFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which AnimesGenero to fetch.
-     */
-    where?: AnimesGeneroWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of AnimesGeneros to fetch.
-     */
-    orderBy?: AnimesGeneroOrderByWithRelationInput | AnimesGeneroOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for AnimesGeneros.
-     */
-    cursor?: AnimesGeneroWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` AnimesGeneros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` AnimesGeneros.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of AnimesGeneros.
-     */
-    distinct?: AnimesGeneroScalarFieldEnum | AnimesGeneroScalarFieldEnum[]
-  }
-
-  /**
-   * AnimesGenero findFirstOrThrow
-   */
-  export type AnimesGeneroFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which AnimesGenero to fetch.
-     */
-    where?: AnimesGeneroWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of AnimesGeneros to fetch.
-     */
-    orderBy?: AnimesGeneroOrderByWithRelationInput | AnimesGeneroOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for AnimesGeneros.
-     */
-    cursor?: AnimesGeneroWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` AnimesGeneros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` AnimesGeneros.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of AnimesGeneros.
-     */
-    distinct?: AnimesGeneroScalarFieldEnum | AnimesGeneroScalarFieldEnum[]
-  }
-
-  /**
-   * AnimesGenero findMany
-   */
-  export type AnimesGeneroFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which AnimesGeneros to fetch.
-     */
-    where?: AnimesGeneroWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of AnimesGeneros to fetch.
-     */
-    orderBy?: AnimesGeneroOrderByWithRelationInput | AnimesGeneroOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing AnimesGeneros.
-     */
-    cursor?: AnimesGeneroWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` AnimesGeneros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` AnimesGeneros.
-     */
-    skip?: number
-    distinct?: AnimesGeneroScalarFieldEnum | AnimesGeneroScalarFieldEnum[]
-  }
-
-  /**
-   * AnimesGenero create
-   */
-  export type AnimesGeneroCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    /**
-     * The data needed to create a AnimesGenero.
-     */
-    data: XOR<AnimesGeneroCreateInput, AnimesGeneroUncheckedCreateInput>
-  }
-
-  /**
-   * AnimesGenero createMany
-   */
-  export type AnimesGeneroCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many AnimesGeneros.
-     */
-    data: AnimesGeneroCreateManyInput | AnimesGeneroCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * AnimesGenero update
-   */
-  export type AnimesGeneroUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    /**
-     * The data needed to update a AnimesGenero.
-     */
-    data: XOR<AnimesGeneroUpdateInput, AnimesGeneroUncheckedUpdateInput>
-    /**
-     * Choose, which AnimesGenero to update.
-     */
-    where: AnimesGeneroWhereUniqueInput
-  }
-
-  /**
-   * AnimesGenero updateMany
-   */
-  export type AnimesGeneroUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update AnimesGeneros.
-     */
-    data: XOR<AnimesGeneroUpdateManyMutationInput, AnimesGeneroUncheckedUpdateManyInput>
-    /**
-     * Filter which AnimesGeneros to update
-     */
-    where?: AnimesGeneroWhereInput
-    /**
-     * Limit how many AnimesGeneros to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * AnimesGenero upsert
-   */
-  export type AnimesGeneroUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    /**
-     * The filter to search for the AnimesGenero to update in case it exists.
-     */
-    where: AnimesGeneroWhereUniqueInput
-    /**
-     * In case the AnimesGenero found by the `where` argument doesn't exist, create a new AnimesGenero with this data.
-     */
-    create: XOR<AnimesGeneroCreateInput, AnimesGeneroUncheckedCreateInput>
-    /**
-     * In case the AnimesGenero was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<AnimesGeneroUpdateInput, AnimesGeneroUncheckedUpdateInput>
-  }
-
-  /**
-   * AnimesGenero delete
-   */
-  export type AnimesGeneroDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-    /**
-     * Filter which AnimesGenero to delete.
-     */
-    where: AnimesGeneroWhereUniqueInput
-  }
-
-  /**
-   * AnimesGenero deleteMany
-   */
-  export type AnimesGeneroDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which AnimesGeneros to delete
-     */
-    where?: AnimesGeneroWhereInput
-    /**
-     * Limit how many AnimesGeneros to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * AnimesGenero without action
-   */
-  export type AnimesGeneroDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the AnimesGenero
-     */
-    select?: AnimesGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the AnimesGenero
-     */
-    omit?: AnimesGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AnimesGeneroInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model MangasGenero
-   */
-
-  export type AggregateMangasGenero = {
-    _count: MangasGeneroCountAggregateOutputType | null
-    _min: MangasGeneroMinAggregateOutputType | null
-    _max: MangasGeneroMaxAggregateOutputType | null
-  }
-
-  export type MangasGeneroMinAggregateOutputType = {
-    mangaId: string | null
-    generoId: string | null
-  }
-
-  export type MangasGeneroMaxAggregateOutputType = {
-    mangaId: string | null
-    generoId: string | null
-  }
-
-  export type MangasGeneroCountAggregateOutputType = {
-    mangaId: number
-    generoId: number
-    _all: number
-  }
-
-
-  export type MangasGeneroMinAggregateInputType = {
-    mangaId?: true
-    generoId?: true
-  }
-
-  export type MangasGeneroMaxAggregateInputType = {
-    mangaId?: true
-    generoId?: true
-  }
-
-  export type MangasGeneroCountAggregateInputType = {
-    mangaId?: true
-    generoId?: true
-    _all?: true
-  }
-
-  export type MangasGeneroAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which MangasGenero to aggregate.
-     */
-    where?: MangasGeneroWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MangasGeneros to fetch.
-     */
-    orderBy?: MangasGeneroOrderByWithRelationInput | MangasGeneroOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: MangasGeneroWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MangasGeneros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MangasGeneros.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned MangasGeneros
-    **/
-    _count?: true | MangasGeneroCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: MangasGeneroMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: MangasGeneroMaxAggregateInputType
-  }
-
-  export type GetMangasGeneroAggregateType<T extends MangasGeneroAggregateArgs> = {
-        [P in keyof T & keyof AggregateMangasGenero]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateMangasGenero[P]>
-      : GetScalarType<T[P], AggregateMangasGenero[P]>
-  }
-
-
-
-
-  export type MangasGeneroGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MangasGeneroWhereInput
-    orderBy?: MangasGeneroOrderByWithAggregationInput | MangasGeneroOrderByWithAggregationInput[]
-    by: MangasGeneroScalarFieldEnum[] | MangasGeneroScalarFieldEnum
-    having?: MangasGeneroScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: MangasGeneroCountAggregateInputType | true
-    _min?: MangasGeneroMinAggregateInputType
-    _max?: MangasGeneroMaxAggregateInputType
-  }
-
-  export type MangasGeneroGroupByOutputType = {
-    mangaId: string
-    generoId: string
-    _count: MangasGeneroCountAggregateOutputType | null
-    _min: MangasGeneroMinAggregateOutputType | null
-    _max: MangasGeneroMaxAggregateOutputType | null
-  }
-
-  type GetMangasGeneroGroupByPayload<T extends MangasGeneroGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<MangasGeneroGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof MangasGeneroGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], MangasGeneroGroupByOutputType[P]>
-            : GetScalarType<T[P], MangasGeneroGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type MangasGeneroSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    mangaId?: boolean
-    generoId?: boolean
-    manga?: boolean | MangasDefaultArgs<ExtArgs>
-    genero?: boolean | GeneroDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["mangasGenero"]>
-
-
-
-  export type MangasGeneroSelectScalar = {
-    mangaId?: boolean
-    generoId?: boolean
-  }
-
-  export type MangasGeneroOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"mangaId" | "generoId", ExtArgs["result"]["mangasGenero"]>
-  export type MangasGeneroInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    manga?: boolean | MangasDefaultArgs<ExtArgs>
-    genero?: boolean | GeneroDefaultArgs<ExtArgs>
-  }
-
-  export type $MangasGeneroPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "MangasGenero"
-    objects: {
-      manga: Prisma.$MangasPayload<ExtArgs>
-      genero: Prisma.$GeneroPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      mangaId: string
-      generoId: string
-    }, ExtArgs["result"]["mangasGenero"]>
-    composites: {}
-  }
-
-  type MangasGeneroGetPayload<S extends boolean | null | undefined | MangasGeneroDefaultArgs> = $Result.GetResult<Prisma.$MangasGeneroPayload, S>
-
-  type MangasGeneroCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<MangasGeneroFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: MangasGeneroCountAggregateInputType | true
-    }
-
-  export interface MangasGeneroDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MangasGenero'], meta: { name: 'MangasGenero' } }
-    /**
-     * Find zero or one MangasGenero that matches the filter.
-     * @param {MangasGeneroFindUniqueArgs} args - Arguments to find a MangasGenero
-     * @example
-     * // Get one MangasGenero
-     * const mangasGenero = await prisma.mangasGenero.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends MangasGeneroFindUniqueArgs>(args: SelectSubset<T, MangasGeneroFindUniqueArgs<ExtArgs>>): Prisma__MangasGeneroClient<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one MangasGenero that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {MangasGeneroFindUniqueOrThrowArgs} args - Arguments to find a MangasGenero
-     * @example
-     * // Get one MangasGenero
-     * const mangasGenero = await prisma.mangasGenero.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends MangasGeneroFindUniqueOrThrowArgs>(args: SelectSubset<T, MangasGeneroFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MangasGeneroClient<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first MangasGenero that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MangasGeneroFindFirstArgs} args - Arguments to find a MangasGenero
-     * @example
-     * // Get one MangasGenero
-     * const mangasGenero = await prisma.mangasGenero.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends MangasGeneroFindFirstArgs>(args?: SelectSubset<T, MangasGeneroFindFirstArgs<ExtArgs>>): Prisma__MangasGeneroClient<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first MangasGenero that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MangasGeneroFindFirstOrThrowArgs} args - Arguments to find a MangasGenero
-     * @example
-     * // Get one MangasGenero
-     * const mangasGenero = await prisma.mangasGenero.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends MangasGeneroFindFirstOrThrowArgs>(args?: SelectSubset<T, MangasGeneroFindFirstOrThrowArgs<ExtArgs>>): Prisma__MangasGeneroClient<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more MangasGeneros that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MangasGeneroFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all MangasGeneros
-     * const mangasGeneros = await prisma.mangasGenero.findMany()
-     * 
-     * // Get first 10 MangasGeneros
-     * const mangasGeneros = await prisma.mangasGenero.findMany({ take: 10 })
-     * 
-     * // Only select the `mangaId`
-     * const mangasGeneroWithMangaIdOnly = await prisma.mangasGenero.findMany({ select: { mangaId: true } })
-     * 
-     */
-    findMany<T extends MangasGeneroFindManyArgs>(args?: SelectSubset<T, MangasGeneroFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a MangasGenero.
-     * @param {MangasGeneroCreateArgs} args - Arguments to create a MangasGenero.
-     * @example
-     * // Create one MangasGenero
-     * const MangasGenero = await prisma.mangasGenero.create({
-     *   data: {
-     *     // ... data to create a MangasGenero
-     *   }
-     * })
-     * 
-     */
-    create<T extends MangasGeneroCreateArgs>(args: SelectSubset<T, MangasGeneroCreateArgs<ExtArgs>>): Prisma__MangasGeneroClient<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many MangasGeneros.
-     * @param {MangasGeneroCreateManyArgs} args - Arguments to create many MangasGeneros.
-     * @example
-     * // Create many MangasGeneros
-     * const mangasGenero = await prisma.mangasGenero.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends MangasGeneroCreateManyArgs>(args?: SelectSubset<T, MangasGeneroCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a MangasGenero.
-     * @param {MangasGeneroDeleteArgs} args - Arguments to delete one MangasGenero.
-     * @example
-     * // Delete one MangasGenero
-     * const MangasGenero = await prisma.mangasGenero.delete({
-     *   where: {
-     *     // ... filter to delete one MangasGenero
-     *   }
-     * })
-     * 
-     */
-    delete<T extends MangasGeneroDeleteArgs>(args: SelectSubset<T, MangasGeneroDeleteArgs<ExtArgs>>): Prisma__MangasGeneroClient<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one MangasGenero.
-     * @param {MangasGeneroUpdateArgs} args - Arguments to update one MangasGenero.
-     * @example
-     * // Update one MangasGenero
-     * const mangasGenero = await prisma.mangasGenero.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends MangasGeneroUpdateArgs>(args: SelectSubset<T, MangasGeneroUpdateArgs<ExtArgs>>): Prisma__MangasGeneroClient<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more MangasGeneros.
-     * @param {MangasGeneroDeleteManyArgs} args - Arguments to filter MangasGeneros to delete.
-     * @example
-     * // Delete a few MangasGeneros
-     * const { count } = await prisma.mangasGenero.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends MangasGeneroDeleteManyArgs>(args?: SelectSubset<T, MangasGeneroDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more MangasGeneros.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MangasGeneroUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many MangasGeneros
-     * const mangasGenero = await prisma.mangasGenero.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends MangasGeneroUpdateManyArgs>(args: SelectSubset<T, MangasGeneroUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one MangasGenero.
-     * @param {MangasGeneroUpsertArgs} args - Arguments to update or create a MangasGenero.
-     * @example
-     * // Update or create a MangasGenero
-     * const mangasGenero = await prisma.mangasGenero.upsert({
-     *   create: {
-     *     // ... data to create a MangasGenero
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the MangasGenero we want to update
-     *   }
-     * })
-     */
-    upsert<T extends MangasGeneroUpsertArgs>(args: SelectSubset<T, MangasGeneroUpsertArgs<ExtArgs>>): Prisma__MangasGeneroClient<$Result.GetResult<Prisma.$MangasGeneroPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of MangasGeneros.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MangasGeneroCountArgs} args - Arguments to filter MangasGeneros to count.
-     * @example
-     * // Count the number of MangasGeneros
-     * const count = await prisma.mangasGenero.count({
-     *   where: {
-     *     // ... the filter for the MangasGeneros we want to count
-     *   }
-     * })
-    **/
-    count<T extends MangasGeneroCountArgs>(
-      args?: Subset<T, MangasGeneroCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], MangasGeneroCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a MangasGenero.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MangasGeneroAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends MangasGeneroAggregateArgs>(args: Subset<T, MangasGeneroAggregateArgs>): Prisma.PrismaPromise<GetMangasGeneroAggregateType<T>>
-
-    /**
-     * Group by MangasGenero.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MangasGeneroGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends MangasGeneroGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MangasGeneroGroupByArgs['orderBy'] }
-        : { orderBy?: MangasGeneroGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, MangasGeneroGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMangasGeneroGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the MangasGenero model
-   */
-  readonly fields: MangasGeneroFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for MangasGenero.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__MangasGeneroClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    manga<T extends MangasDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MangasDefaultArgs<ExtArgs>>): Prisma__MangasClient<$Result.GetResult<Prisma.$MangasPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    genero<T extends GeneroDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GeneroDefaultArgs<ExtArgs>>): Prisma__GeneroClient<$Result.GetResult<Prisma.$GeneroPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the MangasGenero model
-   */
-  interface MangasGeneroFieldRefs {
-    readonly mangaId: FieldRef<"MangasGenero", 'String'>
-    readonly generoId: FieldRef<"MangasGenero", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * MangasGenero findUnique
-   */
-  export type MangasGeneroFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which MangasGenero to fetch.
-     */
-    where: MangasGeneroWhereUniqueInput
-  }
-
-  /**
-   * MangasGenero findUniqueOrThrow
-   */
-  export type MangasGeneroFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which MangasGenero to fetch.
-     */
-    where: MangasGeneroWhereUniqueInput
-  }
-
-  /**
-   * MangasGenero findFirst
-   */
-  export type MangasGeneroFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which MangasGenero to fetch.
-     */
-    where?: MangasGeneroWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MangasGeneros to fetch.
-     */
-    orderBy?: MangasGeneroOrderByWithRelationInput | MangasGeneroOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for MangasGeneros.
-     */
-    cursor?: MangasGeneroWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MangasGeneros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MangasGeneros.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of MangasGeneros.
-     */
-    distinct?: MangasGeneroScalarFieldEnum | MangasGeneroScalarFieldEnum[]
-  }
-
-  /**
-   * MangasGenero findFirstOrThrow
-   */
-  export type MangasGeneroFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which MangasGenero to fetch.
-     */
-    where?: MangasGeneroWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MangasGeneros to fetch.
-     */
-    orderBy?: MangasGeneroOrderByWithRelationInput | MangasGeneroOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for MangasGeneros.
-     */
-    cursor?: MangasGeneroWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MangasGeneros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MangasGeneros.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of MangasGeneros.
-     */
-    distinct?: MangasGeneroScalarFieldEnum | MangasGeneroScalarFieldEnum[]
-  }
-
-  /**
-   * MangasGenero findMany
-   */
-  export type MangasGeneroFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    /**
-     * Filter, which MangasGeneros to fetch.
-     */
-    where?: MangasGeneroWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MangasGeneros to fetch.
-     */
-    orderBy?: MangasGeneroOrderByWithRelationInput | MangasGeneroOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing MangasGeneros.
-     */
-    cursor?: MangasGeneroWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MangasGeneros from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MangasGeneros.
-     */
-    skip?: number
-    distinct?: MangasGeneroScalarFieldEnum | MangasGeneroScalarFieldEnum[]
-  }
-
-  /**
-   * MangasGenero create
-   */
-  export type MangasGeneroCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    /**
-     * The data needed to create a MangasGenero.
-     */
-    data: XOR<MangasGeneroCreateInput, MangasGeneroUncheckedCreateInput>
-  }
-
-  /**
-   * MangasGenero createMany
-   */
-  export type MangasGeneroCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many MangasGeneros.
-     */
-    data: MangasGeneroCreateManyInput | MangasGeneroCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * MangasGenero update
-   */
-  export type MangasGeneroUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    /**
-     * The data needed to update a MangasGenero.
-     */
-    data: XOR<MangasGeneroUpdateInput, MangasGeneroUncheckedUpdateInput>
-    /**
-     * Choose, which MangasGenero to update.
-     */
-    where: MangasGeneroWhereUniqueInput
-  }
-
-  /**
-   * MangasGenero updateMany
-   */
-  export type MangasGeneroUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update MangasGeneros.
-     */
-    data: XOR<MangasGeneroUpdateManyMutationInput, MangasGeneroUncheckedUpdateManyInput>
-    /**
-     * Filter which MangasGeneros to update
-     */
-    where?: MangasGeneroWhereInput
-    /**
-     * Limit how many MangasGeneros to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * MangasGenero upsert
-   */
-  export type MangasGeneroUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    /**
-     * The filter to search for the MangasGenero to update in case it exists.
-     */
-    where: MangasGeneroWhereUniqueInput
-    /**
-     * In case the MangasGenero found by the `where` argument doesn't exist, create a new MangasGenero with this data.
-     */
-    create: XOR<MangasGeneroCreateInput, MangasGeneroUncheckedCreateInput>
-    /**
-     * In case the MangasGenero was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<MangasGeneroUpdateInput, MangasGeneroUncheckedUpdateInput>
-  }
-
-  /**
-   * MangasGenero delete
-   */
-  export type MangasGeneroDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
-    /**
-     * Filter which MangasGenero to delete.
-     */
-    where: MangasGeneroWhereUniqueInput
-  }
-
-  /**
-   * MangasGenero deleteMany
-   */
-  export type MangasGeneroDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which MangasGeneros to delete
-     */
-    where?: MangasGeneroWhereInput
-    /**
-     * Limit how many MangasGeneros to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * MangasGenero without action
-   */
-  export type MangasGeneroDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MangasGenero
-     */
-    select?: MangasGeneroSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MangasGenero
-     */
-    omit?: MangasGeneroOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MangasGeneroInclude<ExtArgs> | null
   }
 
 
@@ -12808,22 +10842,6 @@ export namespace Prisma {
   export type GeneroScalarFieldEnum = (typeof GeneroScalarFieldEnum)[keyof typeof GeneroScalarFieldEnum]
 
 
-  export const AnimesGeneroScalarFieldEnum: {
-    animeId: 'animeId',
-    generoId: 'generoId'
-  };
-
-  export type AnimesGeneroScalarFieldEnum = (typeof AnimesGeneroScalarFieldEnum)[keyof typeof AnimesGeneroScalarFieldEnum]
-
-
-  export const MangasGeneroScalarFieldEnum: {
-    mangaId: 'mangaId',
-    generoId: 'generoId'
-  };
-
-  export type MangasGeneroScalarFieldEnum = (typeof MangasGeneroScalarFieldEnum)[keyof typeof MangasGeneroScalarFieldEnum]
-
-
   export const NotificacaoScalarFieldEnum: {
     id: 'id',
     mensagem: 'mensagem',
@@ -12931,22 +10949,6 @@ export namespace Prisma {
   export type GeneroOrderByRelevanceFieldEnum = (typeof GeneroOrderByRelevanceFieldEnum)[keyof typeof GeneroOrderByRelevanceFieldEnum]
 
 
-  export const AnimesGeneroOrderByRelevanceFieldEnum: {
-    animeId: 'animeId',
-    generoId: 'generoId'
-  };
-
-  export type AnimesGeneroOrderByRelevanceFieldEnum = (typeof AnimesGeneroOrderByRelevanceFieldEnum)[keyof typeof AnimesGeneroOrderByRelevanceFieldEnum]
-
-
-  export const MangasGeneroOrderByRelevanceFieldEnum: {
-    mangaId: 'mangaId',
-    generoId: 'generoId'
-  };
-
-  export type MangasGeneroOrderByRelevanceFieldEnum = (typeof MangasGeneroOrderByRelevanceFieldEnum)[keyof typeof MangasGeneroOrderByRelevanceFieldEnum]
-
-
   export const NotificacaoOrderByRelevanceFieldEnum: {
     id: 'id',
     mensagem: 'mensagem',
@@ -13005,7 +11007,7 @@ export namespace Prisma {
     NOT?: TiposUsuarioWhereInput | TiposUsuarioWhereInput[]
     id?: StringFilter<"TiposUsuario"> | string
     nome?: StringFilter<"TiposUsuario"> | string
-    descricao?: StringFilter<"TiposUsuario"> | string
+    descricao?: StringNullableFilter<"TiposUsuario"> | string | null
     createdAt?: DateTimeFilter<"TiposUsuario"> | Date | string
     updatedAt?: DateTimeFilter<"TiposUsuario"> | Date | string
     deletedAt?: DateTimeNullableFilter<"TiposUsuario"> | Date | string | null
@@ -13016,7 +11018,7 @@ export namespace Prisma {
   export type TiposUsuarioOrderByWithRelationInput = {
     id?: SortOrder
     nome?: SortOrder
-    descricao?: SortOrder
+    descricao?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -13031,7 +11033,7 @@ export namespace Prisma {
     AND?: TiposUsuarioWhereInput | TiposUsuarioWhereInput[]
     OR?: TiposUsuarioWhereInput[]
     NOT?: TiposUsuarioWhereInput | TiposUsuarioWhereInput[]
-    descricao?: StringFilter<"TiposUsuario"> | string
+    descricao?: StringNullableFilter<"TiposUsuario"> | string | null
     createdAt?: DateTimeFilter<"TiposUsuario"> | Date | string
     updatedAt?: DateTimeFilter<"TiposUsuario"> | Date | string
     deletedAt?: DateTimeNullableFilter<"TiposUsuario"> | Date | string | null
@@ -13042,7 +11044,7 @@ export namespace Prisma {
   export type TiposUsuarioOrderByWithAggregationInput = {
     id?: SortOrder
     nome?: SortOrder
-    descricao?: SortOrder
+    descricao?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -13058,7 +11060,7 @@ export namespace Prisma {
     NOT?: TiposUsuarioScalarWhereWithAggregatesInput | TiposUsuarioScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"TiposUsuario"> | string
     nome?: StringWithAggregatesFilter<"TiposUsuario"> | string
-    descricao?: StringWithAggregatesFilter<"TiposUsuario"> | string
+    descricao?: StringNullableWithAggregatesFilter<"TiposUsuario"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"TiposUsuario"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"TiposUsuario"> | Date | string
     deletedAt?: DateTimeNullableWithAggregatesFilter<"TiposUsuario"> | Date | string | null
@@ -13075,7 +11077,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    deletedAt?: DateTimeFilter<"User"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     ativado?: BoolFilter<"User"> | boolean
     tipoUsuarioId?: StringNullableFilter<"User"> | string | null
     tipoUsuario?: XOR<TiposUsuarioNullableScalarRelationFilter, TiposUsuarioWhereInput> | null
@@ -13094,7 +11096,7 @@ export namespace Prisma {
     password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    deletedAt?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
     ativado?: SortOrder
     tipoUsuarioId?: SortOrderInput | SortOrder
     tipoUsuario?: TiposUsuarioOrderByWithRelationInput
@@ -13117,7 +11119,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    deletedAt?: DateTimeFilter<"User"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     ativado?: BoolFilter<"User"> | boolean
     tipoUsuarioId?: StringNullableFilter<"User"> | string | null
     tipoUsuario?: XOR<TiposUsuarioNullableScalarRelationFilter, TiposUsuarioWhereInput> | null
@@ -13136,7 +11138,7 @@ export namespace Prisma {
     password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    deletedAt?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
     ativado?: SortOrder
     tipoUsuarioId?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
@@ -13154,7 +11156,7 @@ export namespace Prisma {
     password?: StringWithAggregatesFilter<"User"> | string
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    deletedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     ativado?: BoolWithAggregatesFilter<"User"> | boolean
     tipoUsuarioId?: StringNullableWithAggregatesFilter<"User"> | string | null
   }
@@ -13171,7 +11173,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Mangas"> | Date | string
     updatedAt?: DateTimeFilter<"Mangas"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    generos?: MangasGeneroListRelationFilter
+    generos?: GeneroListRelationFilter
     favoritos?: FavoritoListRelationFilter
   }
 
@@ -13184,7 +11186,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    generos?: MangasGeneroOrderByRelationAggregateInput
+    generos?: GeneroOrderByRelationAggregateInput
     favoritos?: FavoritoOrderByRelationAggregateInput
     _relevance?: MangasOrderByRelevanceInput
   }
@@ -13201,7 +11203,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Mangas"> | Date | string
     updatedAt?: DateTimeFilter<"Mangas"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
-    generos?: MangasGeneroListRelationFilter
+    generos?: GeneroListRelationFilter
     favoritos?: FavoritoListRelationFilter
   }, "id" | "title">
 
@@ -13244,7 +11246,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Animes"> | Date | string
     updatedAt?: DateTimeFilter<"Animes"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    generos?: AnimesGeneroListRelationFilter
+    generos?: GeneroListRelationFilter
     favoritos?: FavoritoListRelationFilter
     comentarios?: ComentarioListRelationFilter
   }
@@ -13259,7 +11261,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
-    generos?: AnimesGeneroOrderByRelationAggregateInput
+    generos?: GeneroOrderByRelationAggregateInput
     favoritos?: FavoritoOrderByRelationAggregateInput
     comentarios?: ComentarioOrderByRelationAggregateInput
     _relevance?: AnimesOrderByRelevanceInput
@@ -13278,7 +11280,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Animes"> | Date | string
     updatedAt?: DateTimeFilter<"Animes"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    generos?: AnimesGeneroListRelationFilter
+    generos?: GeneroListRelationFilter
     favoritos?: FavoritoListRelationFilter
     comentarios?: ComentarioListRelationFilter
   }, "id" | "title">
@@ -13491,15 +11493,15 @@ export namespace Prisma {
     NOT?: GeneroWhereInput | GeneroWhereInput[]
     id?: StringFilter<"Genero"> | string
     nome?: StringFilter<"Genero"> | string
-    animes?: AnimesGeneroListRelationFilter
-    mangas?: MangasGeneroListRelationFilter
+    animes?: AnimesListRelationFilter
+    mangas?: MangasListRelationFilter
   }
 
   export type GeneroOrderByWithRelationInput = {
     id?: SortOrder
     nome?: SortOrder
-    animes?: AnimesGeneroOrderByRelationAggregateInput
-    mangas?: MangasGeneroOrderByRelationAggregateInput
+    animes?: AnimesOrderByRelationAggregateInput
+    mangas?: MangasOrderByRelationAggregateInput
     _relevance?: GeneroOrderByRelevanceInput
   }
 
@@ -13509,8 +11511,8 @@ export namespace Prisma {
     OR?: GeneroWhereInput[]
     NOT?: GeneroWhereInput | GeneroWhereInput[]
     nome?: StringFilter<"Genero"> | string
-    animes?: AnimesGeneroListRelationFilter
-    mangas?: MangasGeneroListRelationFilter
+    animes?: AnimesListRelationFilter
+    mangas?: MangasListRelationFilter
   }, "id">
 
   export type GeneroOrderByWithAggregationInput = {
@@ -13527,96 +11529,6 @@ export namespace Prisma {
     NOT?: GeneroScalarWhereWithAggregatesInput | GeneroScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Genero"> | string
     nome?: StringWithAggregatesFilter<"Genero"> | string
-  }
-
-  export type AnimesGeneroWhereInput = {
-    AND?: AnimesGeneroWhereInput | AnimesGeneroWhereInput[]
-    OR?: AnimesGeneroWhereInput[]
-    NOT?: AnimesGeneroWhereInput | AnimesGeneroWhereInput[]
-    animeId?: StringFilter<"AnimesGenero"> | string
-    generoId?: StringFilter<"AnimesGenero"> | string
-    anime?: XOR<AnimesScalarRelationFilter, AnimesWhereInput>
-    genero?: XOR<GeneroScalarRelationFilter, GeneroWhereInput>
-  }
-
-  export type AnimesGeneroOrderByWithRelationInput = {
-    animeId?: SortOrder
-    generoId?: SortOrder
-    anime?: AnimesOrderByWithRelationInput
-    genero?: GeneroOrderByWithRelationInput
-    _relevance?: AnimesGeneroOrderByRelevanceInput
-  }
-
-  export type AnimesGeneroWhereUniqueInput = Prisma.AtLeast<{
-    animeId_generoId?: AnimesGeneroAnimeIdGeneroIdCompoundUniqueInput
-    AND?: AnimesGeneroWhereInput | AnimesGeneroWhereInput[]
-    OR?: AnimesGeneroWhereInput[]
-    NOT?: AnimesGeneroWhereInput | AnimesGeneroWhereInput[]
-    animeId?: StringFilter<"AnimesGenero"> | string
-    generoId?: StringFilter<"AnimesGenero"> | string
-    anime?: XOR<AnimesScalarRelationFilter, AnimesWhereInput>
-    genero?: XOR<GeneroScalarRelationFilter, GeneroWhereInput>
-  }, "animeId_generoId">
-
-  export type AnimesGeneroOrderByWithAggregationInput = {
-    animeId?: SortOrder
-    generoId?: SortOrder
-    _count?: AnimesGeneroCountOrderByAggregateInput
-    _max?: AnimesGeneroMaxOrderByAggregateInput
-    _min?: AnimesGeneroMinOrderByAggregateInput
-  }
-
-  export type AnimesGeneroScalarWhereWithAggregatesInput = {
-    AND?: AnimesGeneroScalarWhereWithAggregatesInput | AnimesGeneroScalarWhereWithAggregatesInput[]
-    OR?: AnimesGeneroScalarWhereWithAggregatesInput[]
-    NOT?: AnimesGeneroScalarWhereWithAggregatesInput | AnimesGeneroScalarWhereWithAggregatesInput[]
-    animeId?: StringWithAggregatesFilter<"AnimesGenero"> | string
-    generoId?: StringWithAggregatesFilter<"AnimesGenero"> | string
-  }
-
-  export type MangasGeneroWhereInput = {
-    AND?: MangasGeneroWhereInput | MangasGeneroWhereInput[]
-    OR?: MangasGeneroWhereInput[]
-    NOT?: MangasGeneroWhereInput | MangasGeneroWhereInput[]
-    mangaId?: StringFilter<"MangasGenero"> | string
-    generoId?: StringFilter<"MangasGenero"> | string
-    manga?: XOR<MangasScalarRelationFilter, MangasWhereInput>
-    genero?: XOR<GeneroScalarRelationFilter, GeneroWhereInput>
-  }
-
-  export type MangasGeneroOrderByWithRelationInput = {
-    mangaId?: SortOrder
-    generoId?: SortOrder
-    manga?: MangasOrderByWithRelationInput
-    genero?: GeneroOrderByWithRelationInput
-    _relevance?: MangasGeneroOrderByRelevanceInput
-  }
-
-  export type MangasGeneroWhereUniqueInput = Prisma.AtLeast<{
-    mangaId_generoId?: MangasGeneroMangaIdGeneroIdCompoundUniqueInput
-    AND?: MangasGeneroWhereInput | MangasGeneroWhereInput[]
-    OR?: MangasGeneroWhereInput[]
-    NOT?: MangasGeneroWhereInput | MangasGeneroWhereInput[]
-    mangaId?: StringFilter<"MangasGenero"> | string
-    generoId?: StringFilter<"MangasGenero"> | string
-    manga?: XOR<MangasScalarRelationFilter, MangasWhereInput>
-    genero?: XOR<GeneroScalarRelationFilter, GeneroWhereInput>
-  }, "mangaId_generoId">
-
-  export type MangasGeneroOrderByWithAggregationInput = {
-    mangaId?: SortOrder
-    generoId?: SortOrder
-    _count?: MangasGeneroCountOrderByAggregateInput
-    _max?: MangasGeneroMaxOrderByAggregateInput
-    _min?: MangasGeneroMinOrderByAggregateInput
-  }
-
-  export type MangasGeneroScalarWhereWithAggregatesInput = {
-    AND?: MangasGeneroScalarWhereWithAggregatesInput | MangasGeneroScalarWhereWithAggregatesInput[]
-    OR?: MangasGeneroScalarWhereWithAggregatesInput[]
-    NOT?: MangasGeneroScalarWhereWithAggregatesInput | MangasGeneroScalarWhereWithAggregatesInput[]
-    mangaId?: StringWithAggregatesFilter<"MangasGenero"> | string
-    generoId?: StringWithAggregatesFilter<"MangasGenero"> | string
   }
 
   export type NotificacaoWhereInput = {
@@ -13678,7 +11590,7 @@ export namespace Prisma {
   export type TiposUsuarioCreateInput = {
     id?: string
     nome: string
-    descricao: string
+    descricao?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -13689,7 +11601,7 @@ export namespace Prisma {
   export type TiposUsuarioUncheckedCreateInput = {
     id?: string
     nome: string
-    descricao: string
+    descricao?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -13700,7 +11612,7 @@ export namespace Prisma {
   export type TiposUsuarioUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13711,7 +11623,7 @@ export namespace Prisma {
   export type TiposUsuarioUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13722,7 +11634,7 @@ export namespace Prisma {
   export type TiposUsuarioCreateManyInput = {
     id?: string
     nome: string
-    descricao: string
+    descricao?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -13732,7 +11644,7 @@ export namespace Prisma {
   export type TiposUsuarioUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13742,7 +11654,7 @@ export namespace Prisma {
   export type TiposUsuarioUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13756,7 +11668,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuario?: TiposUsuarioCreateNestedOneWithoutUsuariosInput
     mangas?: MangasCreateNestedManyWithoutUserInput
@@ -13774,7 +11686,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuarioId?: string | null
     mangas?: MangasUncheckedCreateNestedManyWithoutUserInput
@@ -13792,7 +11704,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuario?: TiposUsuarioUpdateOneWithoutUsuariosNestedInput
     mangas?: MangasUpdateManyWithoutUserNestedInput
@@ -13810,7 +11722,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuarioId?: NullableStringFieldUpdateOperationsInput | string | null
     mangas?: MangasUncheckedUpdateManyWithoutUserNestedInput
@@ -13828,7 +11740,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuarioId?: string | null
   }
@@ -13840,7 +11752,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -13851,7 +11763,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuarioId?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -13864,7 +11776,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user?: UserCreateNestedOneWithoutMangasInput
-    generos?: MangasGeneroCreateNestedManyWithoutMangaInput
+    generos?: GeneroCreateNestedManyWithoutMangasInput
     favoritos?: FavoritoCreateNestedManyWithoutMangaInput
   }
 
@@ -13876,7 +11788,7 @@ export namespace Prisma {
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    generos?: MangasGeneroUncheckedCreateNestedManyWithoutMangaInput
+    generos?: GeneroUncheckedCreateNestedManyWithoutMangasInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutMangaInput
   }
 
@@ -13888,7 +11800,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutMangasNestedInput
-    generos?: MangasGeneroUpdateManyWithoutMangaNestedInput
+    generos?: GeneroUpdateManyWithoutMangasNestedInput
     favoritos?: FavoritoUpdateManyWithoutMangaNestedInput
   }
 
@@ -13900,7 +11812,7 @@ export namespace Prisma {
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    generos?: MangasGeneroUncheckedUpdateManyWithoutMangaNestedInput
+    generos?: GeneroUncheckedUpdateManyWithoutMangasNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutMangaNestedInput
   }
 
@@ -13942,7 +11854,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutAnimesInput
-    generos?: AnimesGeneroCreateNestedManyWithoutAnimeInput
+    generos?: GeneroCreateNestedManyWithoutAnimesInput
     favoritos?: FavoritoCreateNestedManyWithoutAnimeInput
     comentarios?: ComentarioCreateNestedManyWithoutAnimeInput
   }
@@ -13956,7 +11868,7 @@ export namespace Prisma {
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    generos?: AnimesGeneroUncheckedCreateNestedManyWithoutAnimeInput
+    generos?: GeneroUncheckedCreateNestedManyWithoutAnimesInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutAnimeInput
     comentarios?: ComentarioUncheckedCreateNestedManyWithoutAnimeInput
   }
@@ -13970,7 +11882,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutAnimesNestedInput
-    generos?: AnimesGeneroUpdateManyWithoutAnimeNestedInput
+    generos?: GeneroUpdateManyWithoutAnimesNestedInput
     favoritos?: FavoritoUpdateManyWithoutAnimeNestedInput
     comentarios?: ComentarioUpdateManyWithoutAnimeNestedInput
   }
@@ -13984,7 +11896,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    generos?: AnimesGeneroUncheckedUpdateManyWithoutAnimeNestedInput
+    generos?: GeneroUncheckedUpdateManyWithoutAnimesNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutAnimeNestedInput
     comentarios?: ComentarioUncheckedUpdateManyWithoutAnimeNestedInput
   }
@@ -14179,29 +12091,29 @@ export namespace Prisma {
   export type GeneroCreateInput = {
     id?: string
     nome: string
-    animes?: AnimesGeneroCreateNestedManyWithoutGeneroInput
-    mangas?: MangasGeneroCreateNestedManyWithoutGeneroInput
+    animes?: AnimesCreateNestedManyWithoutGenerosInput
+    mangas?: MangasCreateNestedManyWithoutGenerosInput
   }
 
   export type GeneroUncheckedCreateInput = {
     id?: string
     nome: string
-    animes?: AnimesGeneroUncheckedCreateNestedManyWithoutGeneroInput
-    mangas?: MangasGeneroUncheckedCreateNestedManyWithoutGeneroInput
+    animes?: AnimesUncheckedCreateNestedManyWithoutGenerosInput
+    mangas?: MangasUncheckedCreateNestedManyWithoutGenerosInput
   }
 
   export type GeneroUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
-    animes?: AnimesGeneroUpdateManyWithoutGeneroNestedInput
-    mangas?: MangasGeneroUpdateManyWithoutGeneroNestedInput
+    animes?: AnimesUpdateManyWithoutGenerosNestedInput
+    mangas?: MangasUpdateManyWithoutGenerosNestedInput
   }
 
   export type GeneroUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
-    animes?: AnimesGeneroUncheckedUpdateManyWithoutGeneroNestedInput
-    mangas?: MangasGeneroUncheckedUpdateManyWithoutGeneroNestedInput
+    animes?: AnimesUncheckedUpdateManyWithoutGenerosNestedInput
+    mangas?: MangasUncheckedUpdateManyWithoutGenerosNestedInput
   }
 
   export type GeneroCreateManyInput = {
@@ -14217,74 +12129,6 @@ export namespace Prisma {
   export type GeneroUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type AnimesGeneroCreateInput = {
-    anime: AnimesCreateNestedOneWithoutGenerosInput
-    genero: GeneroCreateNestedOneWithoutAnimesInput
-  }
-
-  export type AnimesGeneroUncheckedCreateInput = {
-    animeId: string
-    generoId: string
-  }
-
-  export type AnimesGeneroUpdateInput = {
-    anime?: AnimesUpdateOneRequiredWithoutGenerosNestedInput
-    genero?: GeneroUpdateOneRequiredWithoutAnimesNestedInput
-  }
-
-  export type AnimesGeneroUncheckedUpdateInput = {
-    animeId?: StringFieldUpdateOperationsInput | string
-    generoId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type AnimesGeneroCreateManyInput = {
-    animeId: string
-    generoId: string
-  }
-
-  export type AnimesGeneroUpdateManyMutationInput = {
-
-  }
-
-  export type AnimesGeneroUncheckedUpdateManyInput = {
-    animeId?: StringFieldUpdateOperationsInput | string
-    generoId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type MangasGeneroCreateInput = {
-    manga: MangasCreateNestedOneWithoutGenerosInput
-    genero: GeneroCreateNestedOneWithoutMangasInput
-  }
-
-  export type MangasGeneroUncheckedCreateInput = {
-    mangaId: string
-    generoId: string
-  }
-
-  export type MangasGeneroUpdateInput = {
-    manga?: MangasUpdateOneRequiredWithoutGenerosNestedInput
-    genero?: GeneroUpdateOneRequiredWithoutMangasNestedInput
-  }
-
-  export type MangasGeneroUncheckedUpdateInput = {
-    mangaId?: StringFieldUpdateOperationsInput | string
-    generoId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type MangasGeneroCreateManyInput = {
-    mangaId: string
-    generoId: string
-  }
-
-  export type MangasGeneroUpdateManyMutationInput = {
-
-  }
-
-  export type MangasGeneroUncheckedUpdateManyInput = {
-    mangaId?: StringFieldUpdateOperationsInput | string
-    generoId?: StringFieldUpdateOperationsInput | string
   }
 
   export type NotificacaoCreateInput = {
@@ -14355,6 +12199,21 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     search?: string
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -14453,6 +12312,24 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -14487,21 +12364,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type TiposUsuarioNullableScalarRelationFilter = {
@@ -14611,36 +12473,18 @@ export namespace Prisma {
     tipoUsuarioId?: SortOrder
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
   export type UserNullableScalarRelationFilter = {
     is?: UserWhereInput | null
     isNot?: UserWhereInput | null
   }
 
-  export type MangasGeneroListRelationFilter = {
-    every?: MangasGeneroWhereInput
-    some?: MangasGeneroWhereInput
-    none?: MangasGeneroWhereInput
+  export type GeneroListRelationFilter = {
+    every?: GeneroWhereInput
+    some?: GeneroWhereInput
+    none?: GeneroWhereInput
   }
 
-  export type MangasGeneroOrderByRelationAggregateInput = {
+  export type GeneroOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14694,16 +12538,6 @@ export namespace Prisma {
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
-  }
-
-  export type AnimesGeneroListRelationFilter = {
-    every?: AnimesGeneroWhereInput
-    some?: AnimesGeneroWhereInput
-    none?: AnimesGeneroWhereInput
-  }
-
-  export type AnimesGeneroOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type AnimesOrderByRelevanceInput = {
@@ -14887,73 +12721,6 @@ export namespace Prisma {
     nome?: SortOrder
   }
 
-  export type AnimesScalarRelationFilter = {
-    is?: AnimesWhereInput
-    isNot?: AnimesWhereInput
-  }
-
-  export type GeneroScalarRelationFilter = {
-    is?: GeneroWhereInput
-    isNot?: GeneroWhereInput
-  }
-
-  export type AnimesGeneroOrderByRelevanceInput = {
-    fields: AnimesGeneroOrderByRelevanceFieldEnum | AnimesGeneroOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
-  export type AnimesGeneroAnimeIdGeneroIdCompoundUniqueInput = {
-    animeId: string
-    generoId: string
-  }
-
-  export type AnimesGeneroCountOrderByAggregateInput = {
-    animeId?: SortOrder
-    generoId?: SortOrder
-  }
-
-  export type AnimesGeneroMaxOrderByAggregateInput = {
-    animeId?: SortOrder
-    generoId?: SortOrder
-  }
-
-  export type AnimesGeneroMinOrderByAggregateInput = {
-    animeId?: SortOrder
-    generoId?: SortOrder
-  }
-
-  export type MangasScalarRelationFilter = {
-    is?: MangasWhereInput
-    isNot?: MangasWhereInput
-  }
-
-  export type MangasGeneroOrderByRelevanceInput = {
-    fields: MangasGeneroOrderByRelevanceFieldEnum | MangasGeneroOrderByRelevanceFieldEnum[]
-    sort: SortOrder
-    search: string
-  }
-
-  export type MangasGeneroMangaIdGeneroIdCompoundUniqueInput = {
-    mangaId: string
-    generoId: string
-  }
-
-  export type MangasGeneroCountOrderByAggregateInput = {
-    mangaId?: SortOrder
-    generoId?: SortOrder
-  }
-
-  export type MangasGeneroMaxOrderByAggregateInput = {
-    mangaId?: SortOrder
-    generoId?: SortOrder
-  }
-
-  export type MangasGeneroMinOrderByAggregateInput = {
-    mangaId?: SortOrder
-    generoId?: SortOrder
-  }
-
   export type NotificacaoOrderByRelevanceInput = {
     fields: NotificacaoOrderByRelevanceFieldEnum | NotificacaoOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -15000,6 +12767,10 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -15226,10 +12997,6 @@ export namespace Prisma {
     deleteMany?: NotificacaoScalarWhereInput | NotificacaoScalarWhereInput[]
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
   export type MangasUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<MangasCreateWithoutUserInput, MangasUncheckedCreateWithoutUserInput> | MangasCreateWithoutUserInput[] | MangasUncheckedCreateWithoutUserInput[]
     connectOrCreate?: MangasCreateOrConnectWithoutUserInput | MangasCreateOrConnectWithoutUserInput[]
@@ -15320,11 +13087,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type MangasGeneroCreateNestedManyWithoutMangaInput = {
-    create?: XOR<MangasGeneroCreateWithoutMangaInput, MangasGeneroUncheckedCreateWithoutMangaInput> | MangasGeneroCreateWithoutMangaInput[] | MangasGeneroUncheckedCreateWithoutMangaInput[]
-    connectOrCreate?: MangasGeneroCreateOrConnectWithoutMangaInput | MangasGeneroCreateOrConnectWithoutMangaInput[]
-    createMany?: MangasGeneroCreateManyMangaInputEnvelope
-    connect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
+  export type GeneroCreateNestedManyWithoutMangasInput = {
+    create?: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput> | GeneroCreateWithoutMangasInput[] | GeneroUncheckedCreateWithoutMangasInput[]
+    connectOrCreate?: GeneroCreateOrConnectWithoutMangasInput | GeneroCreateOrConnectWithoutMangasInput[]
+    connect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
   }
 
   export type FavoritoCreateNestedManyWithoutMangaInput = {
@@ -15334,11 +13100,10 @@ export namespace Prisma {
     connect?: FavoritoWhereUniqueInput | FavoritoWhereUniqueInput[]
   }
 
-  export type MangasGeneroUncheckedCreateNestedManyWithoutMangaInput = {
-    create?: XOR<MangasGeneroCreateWithoutMangaInput, MangasGeneroUncheckedCreateWithoutMangaInput> | MangasGeneroCreateWithoutMangaInput[] | MangasGeneroUncheckedCreateWithoutMangaInput[]
-    connectOrCreate?: MangasGeneroCreateOrConnectWithoutMangaInput | MangasGeneroCreateOrConnectWithoutMangaInput[]
-    createMany?: MangasGeneroCreateManyMangaInputEnvelope
-    connect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
+  export type GeneroUncheckedCreateNestedManyWithoutMangasInput = {
+    create?: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput> | GeneroCreateWithoutMangasInput[] | GeneroUncheckedCreateWithoutMangasInput[]
+    connectOrCreate?: GeneroCreateOrConnectWithoutMangasInput | GeneroCreateOrConnectWithoutMangasInput[]
+    connect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
   }
 
   export type FavoritoUncheckedCreateNestedManyWithoutMangaInput = {
@@ -15358,18 +13123,17 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMangasInput, UserUpdateWithoutMangasInput>, UserUncheckedUpdateWithoutMangasInput>
   }
 
-  export type MangasGeneroUpdateManyWithoutMangaNestedInput = {
-    create?: XOR<MangasGeneroCreateWithoutMangaInput, MangasGeneroUncheckedCreateWithoutMangaInput> | MangasGeneroCreateWithoutMangaInput[] | MangasGeneroUncheckedCreateWithoutMangaInput[]
-    connectOrCreate?: MangasGeneroCreateOrConnectWithoutMangaInput | MangasGeneroCreateOrConnectWithoutMangaInput[]
-    upsert?: MangasGeneroUpsertWithWhereUniqueWithoutMangaInput | MangasGeneroUpsertWithWhereUniqueWithoutMangaInput[]
-    createMany?: MangasGeneroCreateManyMangaInputEnvelope
-    set?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    disconnect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    delete?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    connect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    update?: MangasGeneroUpdateWithWhereUniqueWithoutMangaInput | MangasGeneroUpdateWithWhereUniqueWithoutMangaInput[]
-    updateMany?: MangasGeneroUpdateManyWithWhereWithoutMangaInput | MangasGeneroUpdateManyWithWhereWithoutMangaInput[]
-    deleteMany?: MangasGeneroScalarWhereInput | MangasGeneroScalarWhereInput[]
+  export type GeneroUpdateManyWithoutMangasNestedInput = {
+    create?: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput> | GeneroCreateWithoutMangasInput[] | GeneroUncheckedCreateWithoutMangasInput[]
+    connectOrCreate?: GeneroCreateOrConnectWithoutMangasInput | GeneroCreateOrConnectWithoutMangasInput[]
+    upsert?: GeneroUpsertWithWhereUniqueWithoutMangasInput | GeneroUpsertWithWhereUniqueWithoutMangasInput[]
+    set?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    disconnect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    delete?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    connect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    update?: GeneroUpdateWithWhereUniqueWithoutMangasInput | GeneroUpdateWithWhereUniqueWithoutMangasInput[]
+    updateMany?: GeneroUpdateManyWithWhereWithoutMangasInput | GeneroUpdateManyWithWhereWithoutMangasInput[]
+    deleteMany?: GeneroScalarWhereInput | GeneroScalarWhereInput[]
   }
 
   export type FavoritoUpdateManyWithoutMangaNestedInput = {
@@ -15386,18 +13150,17 @@ export namespace Prisma {
     deleteMany?: FavoritoScalarWhereInput | FavoritoScalarWhereInput[]
   }
 
-  export type MangasGeneroUncheckedUpdateManyWithoutMangaNestedInput = {
-    create?: XOR<MangasGeneroCreateWithoutMangaInput, MangasGeneroUncheckedCreateWithoutMangaInput> | MangasGeneroCreateWithoutMangaInput[] | MangasGeneroUncheckedCreateWithoutMangaInput[]
-    connectOrCreate?: MangasGeneroCreateOrConnectWithoutMangaInput | MangasGeneroCreateOrConnectWithoutMangaInput[]
-    upsert?: MangasGeneroUpsertWithWhereUniqueWithoutMangaInput | MangasGeneroUpsertWithWhereUniqueWithoutMangaInput[]
-    createMany?: MangasGeneroCreateManyMangaInputEnvelope
-    set?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    disconnect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    delete?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    connect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    update?: MangasGeneroUpdateWithWhereUniqueWithoutMangaInput | MangasGeneroUpdateWithWhereUniqueWithoutMangaInput[]
-    updateMany?: MangasGeneroUpdateManyWithWhereWithoutMangaInput | MangasGeneroUpdateManyWithWhereWithoutMangaInput[]
-    deleteMany?: MangasGeneroScalarWhereInput | MangasGeneroScalarWhereInput[]
+  export type GeneroUncheckedUpdateManyWithoutMangasNestedInput = {
+    create?: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput> | GeneroCreateWithoutMangasInput[] | GeneroUncheckedCreateWithoutMangasInput[]
+    connectOrCreate?: GeneroCreateOrConnectWithoutMangasInput | GeneroCreateOrConnectWithoutMangasInput[]
+    upsert?: GeneroUpsertWithWhereUniqueWithoutMangasInput | GeneroUpsertWithWhereUniqueWithoutMangasInput[]
+    set?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    disconnect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    delete?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    connect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    update?: GeneroUpdateWithWhereUniqueWithoutMangasInput | GeneroUpdateWithWhereUniqueWithoutMangasInput[]
+    updateMany?: GeneroUpdateManyWithWhereWithoutMangasInput | GeneroUpdateManyWithWhereWithoutMangasInput[]
+    deleteMany?: GeneroScalarWhereInput | GeneroScalarWhereInput[]
   }
 
   export type FavoritoUncheckedUpdateManyWithoutMangaNestedInput = {
@@ -15420,11 +13183,10 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type AnimesGeneroCreateNestedManyWithoutAnimeInput = {
-    create?: XOR<AnimesGeneroCreateWithoutAnimeInput, AnimesGeneroUncheckedCreateWithoutAnimeInput> | AnimesGeneroCreateWithoutAnimeInput[] | AnimesGeneroUncheckedCreateWithoutAnimeInput[]
-    connectOrCreate?: AnimesGeneroCreateOrConnectWithoutAnimeInput | AnimesGeneroCreateOrConnectWithoutAnimeInput[]
-    createMany?: AnimesGeneroCreateManyAnimeInputEnvelope
-    connect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
+  export type GeneroCreateNestedManyWithoutAnimesInput = {
+    create?: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput> | GeneroCreateWithoutAnimesInput[] | GeneroUncheckedCreateWithoutAnimesInput[]
+    connectOrCreate?: GeneroCreateOrConnectWithoutAnimesInput | GeneroCreateOrConnectWithoutAnimesInput[]
+    connect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
   }
 
   export type FavoritoCreateNestedManyWithoutAnimeInput = {
@@ -15441,11 +13203,10 @@ export namespace Prisma {
     connect?: ComentarioWhereUniqueInput | ComentarioWhereUniqueInput[]
   }
 
-  export type AnimesGeneroUncheckedCreateNestedManyWithoutAnimeInput = {
-    create?: XOR<AnimesGeneroCreateWithoutAnimeInput, AnimesGeneroUncheckedCreateWithoutAnimeInput> | AnimesGeneroCreateWithoutAnimeInput[] | AnimesGeneroUncheckedCreateWithoutAnimeInput[]
-    connectOrCreate?: AnimesGeneroCreateOrConnectWithoutAnimeInput | AnimesGeneroCreateOrConnectWithoutAnimeInput[]
-    createMany?: AnimesGeneroCreateManyAnimeInputEnvelope
-    connect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
+  export type GeneroUncheckedCreateNestedManyWithoutAnimesInput = {
+    create?: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput> | GeneroCreateWithoutAnimesInput[] | GeneroUncheckedCreateWithoutAnimesInput[]
+    connectOrCreate?: GeneroCreateOrConnectWithoutAnimesInput | GeneroCreateOrConnectWithoutAnimesInput[]
+    connect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
   }
 
   export type FavoritoUncheckedCreateNestedManyWithoutAnimeInput = {
@@ -15478,18 +13239,17 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAnimesInput, UserUpdateWithoutAnimesInput>, UserUncheckedUpdateWithoutAnimesInput>
   }
 
-  export type AnimesGeneroUpdateManyWithoutAnimeNestedInput = {
-    create?: XOR<AnimesGeneroCreateWithoutAnimeInput, AnimesGeneroUncheckedCreateWithoutAnimeInput> | AnimesGeneroCreateWithoutAnimeInput[] | AnimesGeneroUncheckedCreateWithoutAnimeInput[]
-    connectOrCreate?: AnimesGeneroCreateOrConnectWithoutAnimeInput | AnimesGeneroCreateOrConnectWithoutAnimeInput[]
-    upsert?: AnimesGeneroUpsertWithWhereUniqueWithoutAnimeInput | AnimesGeneroUpsertWithWhereUniqueWithoutAnimeInput[]
-    createMany?: AnimesGeneroCreateManyAnimeInputEnvelope
-    set?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    disconnect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    delete?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    connect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    update?: AnimesGeneroUpdateWithWhereUniqueWithoutAnimeInput | AnimesGeneroUpdateWithWhereUniqueWithoutAnimeInput[]
-    updateMany?: AnimesGeneroUpdateManyWithWhereWithoutAnimeInput | AnimesGeneroUpdateManyWithWhereWithoutAnimeInput[]
-    deleteMany?: AnimesGeneroScalarWhereInput | AnimesGeneroScalarWhereInput[]
+  export type GeneroUpdateManyWithoutAnimesNestedInput = {
+    create?: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput> | GeneroCreateWithoutAnimesInput[] | GeneroUncheckedCreateWithoutAnimesInput[]
+    connectOrCreate?: GeneroCreateOrConnectWithoutAnimesInput | GeneroCreateOrConnectWithoutAnimesInput[]
+    upsert?: GeneroUpsertWithWhereUniqueWithoutAnimesInput | GeneroUpsertWithWhereUniqueWithoutAnimesInput[]
+    set?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    disconnect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    delete?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    connect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    update?: GeneroUpdateWithWhereUniqueWithoutAnimesInput | GeneroUpdateWithWhereUniqueWithoutAnimesInput[]
+    updateMany?: GeneroUpdateManyWithWhereWithoutAnimesInput | GeneroUpdateManyWithWhereWithoutAnimesInput[]
+    deleteMany?: GeneroScalarWhereInput | GeneroScalarWhereInput[]
   }
 
   export type FavoritoUpdateManyWithoutAnimeNestedInput = {
@@ -15520,18 +13280,17 @@ export namespace Prisma {
     deleteMany?: ComentarioScalarWhereInput | ComentarioScalarWhereInput[]
   }
 
-  export type AnimesGeneroUncheckedUpdateManyWithoutAnimeNestedInput = {
-    create?: XOR<AnimesGeneroCreateWithoutAnimeInput, AnimesGeneroUncheckedCreateWithoutAnimeInput> | AnimesGeneroCreateWithoutAnimeInput[] | AnimesGeneroUncheckedCreateWithoutAnimeInput[]
-    connectOrCreate?: AnimesGeneroCreateOrConnectWithoutAnimeInput | AnimesGeneroCreateOrConnectWithoutAnimeInput[]
-    upsert?: AnimesGeneroUpsertWithWhereUniqueWithoutAnimeInput | AnimesGeneroUpsertWithWhereUniqueWithoutAnimeInput[]
-    createMany?: AnimesGeneroCreateManyAnimeInputEnvelope
-    set?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    disconnect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    delete?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    connect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    update?: AnimesGeneroUpdateWithWhereUniqueWithoutAnimeInput | AnimesGeneroUpdateWithWhereUniqueWithoutAnimeInput[]
-    updateMany?: AnimesGeneroUpdateManyWithWhereWithoutAnimeInput | AnimesGeneroUpdateManyWithWhereWithoutAnimeInput[]
-    deleteMany?: AnimesGeneroScalarWhereInput | AnimesGeneroScalarWhereInput[]
+  export type GeneroUncheckedUpdateManyWithoutAnimesNestedInput = {
+    create?: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput> | GeneroCreateWithoutAnimesInput[] | GeneroUncheckedCreateWithoutAnimesInput[]
+    connectOrCreate?: GeneroCreateOrConnectWithoutAnimesInput | GeneroCreateOrConnectWithoutAnimesInput[]
+    upsert?: GeneroUpsertWithWhereUniqueWithoutAnimesInput | GeneroUpsertWithWhereUniqueWithoutAnimesInput[]
+    set?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    disconnect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    delete?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    connect?: GeneroWhereUniqueInput | GeneroWhereUniqueInput[]
+    update?: GeneroUpdateWithWhereUniqueWithoutAnimesInput | GeneroUpdateWithWhereUniqueWithoutAnimesInput[]
+    updateMany?: GeneroUpdateManyWithWhereWithoutAnimesInput | GeneroUpdateManyWithWhereWithoutAnimesInput[]
+    deleteMany?: GeneroScalarWhereInput | GeneroScalarWhereInput[]
   }
 
   export type FavoritoUncheckedUpdateManyWithoutAnimeNestedInput = {
@@ -15652,144 +13411,80 @@ export namespace Prisma {
     update?: XOR<XOR<AnimesUpdateToOneWithWhereWithoutComentariosInput, AnimesUpdateWithoutComentariosInput>, AnimesUncheckedUpdateWithoutComentariosInput>
   }
 
-  export type AnimesGeneroCreateNestedManyWithoutGeneroInput = {
-    create?: XOR<AnimesGeneroCreateWithoutGeneroInput, AnimesGeneroUncheckedCreateWithoutGeneroInput> | AnimesGeneroCreateWithoutGeneroInput[] | AnimesGeneroUncheckedCreateWithoutGeneroInput[]
-    connectOrCreate?: AnimesGeneroCreateOrConnectWithoutGeneroInput | AnimesGeneroCreateOrConnectWithoutGeneroInput[]
-    createMany?: AnimesGeneroCreateManyGeneroInputEnvelope
-    connect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
+  export type AnimesCreateNestedManyWithoutGenerosInput = {
+    create?: XOR<AnimesCreateWithoutGenerosInput, AnimesUncheckedCreateWithoutGenerosInput> | AnimesCreateWithoutGenerosInput[] | AnimesUncheckedCreateWithoutGenerosInput[]
+    connectOrCreate?: AnimesCreateOrConnectWithoutGenerosInput | AnimesCreateOrConnectWithoutGenerosInput[]
+    connect?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
   }
 
-  export type MangasGeneroCreateNestedManyWithoutGeneroInput = {
-    create?: XOR<MangasGeneroCreateWithoutGeneroInput, MangasGeneroUncheckedCreateWithoutGeneroInput> | MangasGeneroCreateWithoutGeneroInput[] | MangasGeneroUncheckedCreateWithoutGeneroInput[]
-    connectOrCreate?: MangasGeneroCreateOrConnectWithoutGeneroInput | MangasGeneroCreateOrConnectWithoutGeneroInput[]
-    createMany?: MangasGeneroCreateManyGeneroInputEnvelope
-    connect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
+  export type MangasCreateNestedManyWithoutGenerosInput = {
+    create?: XOR<MangasCreateWithoutGenerosInput, MangasUncheckedCreateWithoutGenerosInput> | MangasCreateWithoutGenerosInput[] | MangasUncheckedCreateWithoutGenerosInput[]
+    connectOrCreate?: MangasCreateOrConnectWithoutGenerosInput | MangasCreateOrConnectWithoutGenerosInput[]
+    connect?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
   }
 
-  export type AnimesGeneroUncheckedCreateNestedManyWithoutGeneroInput = {
-    create?: XOR<AnimesGeneroCreateWithoutGeneroInput, AnimesGeneroUncheckedCreateWithoutGeneroInput> | AnimesGeneroCreateWithoutGeneroInput[] | AnimesGeneroUncheckedCreateWithoutGeneroInput[]
-    connectOrCreate?: AnimesGeneroCreateOrConnectWithoutGeneroInput | AnimesGeneroCreateOrConnectWithoutGeneroInput[]
-    createMany?: AnimesGeneroCreateManyGeneroInputEnvelope
-    connect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
+  export type AnimesUncheckedCreateNestedManyWithoutGenerosInput = {
+    create?: XOR<AnimesCreateWithoutGenerosInput, AnimesUncheckedCreateWithoutGenerosInput> | AnimesCreateWithoutGenerosInput[] | AnimesUncheckedCreateWithoutGenerosInput[]
+    connectOrCreate?: AnimesCreateOrConnectWithoutGenerosInput | AnimesCreateOrConnectWithoutGenerosInput[]
+    connect?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
   }
 
-  export type MangasGeneroUncheckedCreateNestedManyWithoutGeneroInput = {
-    create?: XOR<MangasGeneroCreateWithoutGeneroInput, MangasGeneroUncheckedCreateWithoutGeneroInput> | MangasGeneroCreateWithoutGeneroInput[] | MangasGeneroUncheckedCreateWithoutGeneroInput[]
-    connectOrCreate?: MangasGeneroCreateOrConnectWithoutGeneroInput | MangasGeneroCreateOrConnectWithoutGeneroInput[]
-    createMany?: MangasGeneroCreateManyGeneroInputEnvelope
-    connect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
+  export type MangasUncheckedCreateNestedManyWithoutGenerosInput = {
+    create?: XOR<MangasCreateWithoutGenerosInput, MangasUncheckedCreateWithoutGenerosInput> | MangasCreateWithoutGenerosInput[] | MangasUncheckedCreateWithoutGenerosInput[]
+    connectOrCreate?: MangasCreateOrConnectWithoutGenerosInput | MangasCreateOrConnectWithoutGenerosInput[]
+    connect?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
   }
 
-  export type AnimesGeneroUpdateManyWithoutGeneroNestedInput = {
-    create?: XOR<AnimesGeneroCreateWithoutGeneroInput, AnimesGeneroUncheckedCreateWithoutGeneroInput> | AnimesGeneroCreateWithoutGeneroInput[] | AnimesGeneroUncheckedCreateWithoutGeneroInput[]
-    connectOrCreate?: AnimesGeneroCreateOrConnectWithoutGeneroInput | AnimesGeneroCreateOrConnectWithoutGeneroInput[]
-    upsert?: AnimesGeneroUpsertWithWhereUniqueWithoutGeneroInput | AnimesGeneroUpsertWithWhereUniqueWithoutGeneroInput[]
-    createMany?: AnimesGeneroCreateManyGeneroInputEnvelope
-    set?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    disconnect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    delete?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    connect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    update?: AnimesGeneroUpdateWithWhereUniqueWithoutGeneroInput | AnimesGeneroUpdateWithWhereUniqueWithoutGeneroInput[]
-    updateMany?: AnimesGeneroUpdateManyWithWhereWithoutGeneroInput | AnimesGeneroUpdateManyWithWhereWithoutGeneroInput[]
-    deleteMany?: AnimesGeneroScalarWhereInput | AnimesGeneroScalarWhereInput[]
+  export type AnimesUpdateManyWithoutGenerosNestedInput = {
+    create?: XOR<AnimesCreateWithoutGenerosInput, AnimesUncheckedCreateWithoutGenerosInput> | AnimesCreateWithoutGenerosInput[] | AnimesUncheckedCreateWithoutGenerosInput[]
+    connectOrCreate?: AnimesCreateOrConnectWithoutGenerosInput | AnimesCreateOrConnectWithoutGenerosInput[]
+    upsert?: AnimesUpsertWithWhereUniqueWithoutGenerosInput | AnimesUpsertWithWhereUniqueWithoutGenerosInput[]
+    set?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
+    disconnect?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
+    delete?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
+    connect?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
+    update?: AnimesUpdateWithWhereUniqueWithoutGenerosInput | AnimesUpdateWithWhereUniqueWithoutGenerosInput[]
+    updateMany?: AnimesUpdateManyWithWhereWithoutGenerosInput | AnimesUpdateManyWithWhereWithoutGenerosInput[]
+    deleteMany?: AnimesScalarWhereInput | AnimesScalarWhereInput[]
   }
 
-  export type MangasGeneroUpdateManyWithoutGeneroNestedInput = {
-    create?: XOR<MangasGeneroCreateWithoutGeneroInput, MangasGeneroUncheckedCreateWithoutGeneroInput> | MangasGeneroCreateWithoutGeneroInput[] | MangasGeneroUncheckedCreateWithoutGeneroInput[]
-    connectOrCreate?: MangasGeneroCreateOrConnectWithoutGeneroInput | MangasGeneroCreateOrConnectWithoutGeneroInput[]
-    upsert?: MangasGeneroUpsertWithWhereUniqueWithoutGeneroInput | MangasGeneroUpsertWithWhereUniqueWithoutGeneroInput[]
-    createMany?: MangasGeneroCreateManyGeneroInputEnvelope
-    set?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    disconnect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    delete?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    connect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    update?: MangasGeneroUpdateWithWhereUniqueWithoutGeneroInput | MangasGeneroUpdateWithWhereUniqueWithoutGeneroInput[]
-    updateMany?: MangasGeneroUpdateManyWithWhereWithoutGeneroInput | MangasGeneroUpdateManyWithWhereWithoutGeneroInput[]
-    deleteMany?: MangasGeneroScalarWhereInput | MangasGeneroScalarWhereInput[]
+  export type MangasUpdateManyWithoutGenerosNestedInput = {
+    create?: XOR<MangasCreateWithoutGenerosInput, MangasUncheckedCreateWithoutGenerosInput> | MangasCreateWithoutGenerosInput[] | MangasUncheckedCreateWithoutGenerosInput[]
+    connectOrCreate?: MangasCreateOrConnectWithoutGenerosInput | MangasCreateOrConnectWithoutGenerosInput[]
+    upsert?: MangasUpsertWithWhereUniqueWithoutGenerosInput | MangasUpsertWithWhereUniqueWithoutGenerosInput[]
+    set?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
+    disconnect?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
+    delete?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
+    connect?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
+    update?: MangasUpdateWithWhereUniqueWithoutGenerosInput | MangasUpdateWithWhereUniqueWithoutGenerosInput[]
+    updateMany?: MangasUpdateManyWithWhereWithoutGenerosInput | MangasUpdateManyWithWhereWithoutGenerosInput[]
+    deleteMany?: MangasScalarWhereInput | MangasScalarWhereInput[]
   }
 
-  export type AnimesGeneroUncheckedUpdateManyWithoutGeneroNestedInput = {
-    create?: XOR<AnimesGeneroCreateWithoutGeneroInput, AnimesGeneroUncheckedCreateWithoutGeneroInput> | AnimesGeneroCreateWithoutGeneroInput[] | AnimesGeneroUncheckedCreateWithoutGeneroInput[]
-    connectOrCreate?: AnimesGeneroCreateOrConnectWithoutGeneroInput | AnimesGeneroCreateOrConnectWithoutGeneroInput[]
-    upsert?: AnimesGeneroUpsertWithWhereUniqueWithoutGeneroInput | AnimesGeneroUpsertWithWhereUniqueWithoutGeneroInput[]
-    createMany?: AnimesGeneroCreateManyGeneroInputEnvelope
-    set?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    disconnect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    delete?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    connect?: AnimesGeneroWhereUniqueInput | AnimesGeneroWhereUniqueInput[]
-    update?: AnimesGeneroUpdateWithWhereUniqueWithoutGeneroInput | AnimesGeneroUpdateWithWhereUniqueWithoutGeneroInput[]
-    updateMany?: AnimesGeneroUpdateManyWithWhereWithoutGeneroInput | AnimesGeneroUpdateManyWithWhereWithoutGeneroInput[]
-    deleteMany?: AnimesGeneroScalarWhereInput | AnimesGeneroScalarWhereInput[]
+  export type AnimesUncheckedUpdateManyWithoutGenerosNestedInput = {
+    create?: XOR<AnimesCreateWithoutGenerosInput, AnimesUncheckedCreateWithoutGenerosInput> | AnimesCreateWithoutGenerosInput[] | AnimesUncheckedCreateWithoutGenerosInput[]
+    connectOrCreate?: AnimesCreateOrConnectWithoutGenerosInput | AnimesCreateOrConnectWithoutGenerosInput[]
+    upsert?: AnimesUpsertWithWhereUniqueWithoutGenerosInput | AnimesUpsertWithWhereUniqueWithoutGenerosInput[]
+    set?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
+    disconnect?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
+    delete?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
+    connect?: AnimesWhereUniqueInput | AnimesWhereUniqueInput[]
+    update?: AnimesUpdateWithWhereUniqueWithoutGenerosInput | AnimesUpdateWithWhereUniqueWithoutGenerosInput[]
+    updateMany?: AnimesUpdateManyWithWhereWithoutGenerosInput | AnimesUpdateManyWithWhereWithoutGenerosInput[]
+    deleteMany?: AnimesScalarWhereInput | AnimesScalarWhereInput[]
   }
 
-  export type MangasGeneroUncheckedUpdateManyWithoutGeneroNestedInput = {
-    create?: XOR<MangasGeneroCreateWithoutGeneroInput, MangasGeneroUncheckedCreateWithoutGeneroInput> | MangasGeneroCreateWithoutGeneroInput[] | MangasGeneroUncheckedCreateWithoutGeneroInput[]
-    connectOrCreate?: MangasGeneroCreateOrConnectWithoutGeneroInput | MangasGeneroCreateOrConnectWithoutGeneroInput[]
-    upsert?: MangasGeneroUpsertWithWhereUniqueWithoutGeneroInput | MangasGeneroUpsertWithWhereUniqueWithoutGeneroInput[]
-    createMany?: MangasGeneroCreateManyGeneroInputEnvelope
-    set?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    disconnect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    delete?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    connect?: MangasGeneroWhereUniqueInput | MangasGeneroWhereUniqueInput[]
-    update?: MangasGeneroUpdateWithWhereUniqueWithoutGeneroInput | MangasGeneroUpdateWithWhereUniqueWithoutGeneroInput[]
-    updateMany?: MangasGeneroUpdateManyWithWhereWithoutGeneroInput | MangasGeneroUpdateManyWithWhereWithoutGeneroInput[]
-    deleteMany?: MangasGeneroScalarWhereInput | MangasGeneroScalarWhereInput[]
-  }
-
-  export type AnimesCreateNestedOneWithoutGenerosInput = {
-    create?: XOR<AnimesCreateWithoutGenerosInput, AnimesUncheckedCreateWithoutGenerosInput>
-    connectOrCreate?: AnimesCreateOrConnectWithoutGenerosInput
-    connect?: AnimesWhereUniqueInput
-  }
-
-  export type GeneroCreateNestedOneWithoutAnimesInput = {
-    create?: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput>
-    connectOrCreate?: GeneroCreateOrConnectWithoutAnimesInput
-    connect?: GeneroWhereUniqueInput
-  }
-
-  export type AnimesUpdateOneRequiredWithoutGenerosNestedInput = {
-    create?: XOR<AnimesCreateWithoutGenerosInput, AnimesUncheckedCreateWithoutGenerosInput>
-    connectOrCreate?: AnimesCreateOrConnectWithoutGenerosInput
-    upsert?: AnimesUpsertWithoutGenerosInput
-    connect?: AnimesWhereUniqueInput
-    update?: XOR<XOR<AnimesUpdateToOneWithWhereWithoutGenerosInput, AnimesUpdateWithoutGenerosInput>, AnimesUncheckedUpdateWithoutGenerosInput>
-  }
-
-  export type GeneroUpdateOneRequiredWithoutAnimesNestedInput = {
-    create?: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput>
-    connectOrCreate?: GeneroCreateOrConnectWithoutAnimesInput
-    upsert?: GeneroUpsertWithoutAnimesInput
-    connect?: GeneroWhereUniqueInput
-    update?: XOR<XOR<GeneroUpdateToOneWithWhereWithoutAnimesInput, GeneroUpdateWithoutAnimesInput>, GeneroUncheckedUpdateWithoutAnimesInput>
-  }
-
-  export type MangasCreateNestedOneWithoutGenerosInput = {
-    create?: XOR<MangasCreateWithoutGenerosInput, MangasUncheckedCreateWithoutGenerosInput>
-    connectOrCreate?: MangasCreateOrConnectWithoutGenerosInput
-    connect?: MangasWhereUniqueInput
-  }
-
-  export type GeneroCreateNestedOneWithoutMangasInput = {
-    create?: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput>
-    connectOrCreate?: GeneroCreateOrConnectWithoutMangasInput
-    connect?: GeneroWhereUniqueInput
-  }
-
-  export type MangasUpdateOneRequiredWithoutGenerosNestedInput = {
-    create?: XOR<MangasCreateWithoutGenerosInput, MangasUncheckedCreateWithoutGenerosInput>
-    connectOrCreate?: MangasCreateOrConnectWithoutGenerosInput
-    upsert?: MangasUpsertWithoutGenerosInput
-    connect?: MangasWhereUniqueInput
-    update?: XOR<XOR<MangasUpdateToOneWithWhereWithoutGenerosInput, MangasUpdateWithoutGenerosInput>, MangasUncheckedUpdateWithoutGenerosInput>
-  }
-
-  export type GeneroUpdateOneRequiredWithoutMangasNestedInput = {
-    create?: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput>
-    connectOrCreate?: GeneroCreateOrConnectWithoutMangasInput
-    upsert?: GeneroUpsertWithoutMangasInput
-    connect?: GeneroWhereUniqueInput
-    update?: XOR<XOR<GeneroUpdateToOneWithWhereWithoutMangasInput, GeneroUpdateWithoutMangasInput>, GeneroUncheckedUpdateWithoutMangasInput>
+  export type MangasUncheckedUpdateManyWithoutGenerosNestedInput = {
+    create?: XOR<MangasCreateWithoutGenerosInput, MangasUncheckedCreateWithoutGenerosInput> | MangasCreateWithoutGenerosInput[] | MangasUncheckedCreateWithoutGenerosInput[]
+    connectOrCreate?: MangasCreateOrConnectWithoutGenerosInput | MangasCreateOrConnectWithoutGenerosInput[]
+    upsert?: MangasUpsertWithWhereUniqueWithoutGenerosInput | MangasUpsertWithWhereUniqueWithoutGenerosInput[]
+    set?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
+    disconnect?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
+    delete?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
+    connect?: MangasWhereUniqueInput | MangasWhereUniqueInput[]
+    update?: MangasUpdateWithWhereUniqueWithoutGenerosInput | MangasUpdateWithWhereUniqueWithoutGenerosInput[]
+    updateMany?: MangasUpdateManyWithWhereWithoutGenerosInput | MangasUpdateManyWithWhereWithoutGenerosInput[]
+    deleteMany?: MangasScalarWhereInput | MangasScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutNotificacoesInput = {
@@ -15819,6 +13514,21 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     search?: string
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -15877,6 +13587,35 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | null
+    notIn?: string[] | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    search?: string
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -15905,56 +13644,12 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    search?: string
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -15991,7 +13686,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     mangas?: MangasCreateNestedManyWithoutUserInput
     animes?: AnimesCreateNestedManyWithoutUserInput
@@ -16008,7 +13703,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     mangas?: MangasUncheckedCreateNestedManyWithoutUserInput
     animes?: AnimesUncheckedCreateNestedManyWithoutUserInput
@@ -16054,7 +13749,7 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    deletedAt?: DateTimeFilter<"User"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     ativado?: BoolFilter<"User"> | boolean
     tipoUsuarioId?: StringNullableFilter<"User"> | string | null
   }
@@ -16062,7 +13757,7 @@ export namespace Prisma {
   export type TiposUsuarioCreateWithoutUsuariosInput = {
     id?: string
     nome: string
-    descricao: string
+    descricao?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -16072,7 +13767,7 @@ export namespace Prisma {
   export type TiposUsuarioUncheckedCreateWithoutUsuariosInput = {
     id?: string
     nome: string
-    descricao: string
+    descricao?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -16091,7 +13786,7 @@ export namespace Prisma {
     image: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    generos?: MangasGeneroCreateNestedManyWithoutMangaInput
+    generos?: GeneroCreateNestedManyWithoutMangasInput
     favoritos?: FavoritoCreateNestedManyWithoutMangaInput
   }
 
@@ -16102,7 +13797,7 @@ export namespace Prisma {
     image: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    generos?: MangasGeneroUncheckedCreateNestedManyWithoutMangaInput
+    generos?: GeneroUncheckedCreateNestedManyWithoutMangasInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutMangaInput
   }
 
@@ -16124,7 +13819,7 @@ export namespace Prisma {
     episodios: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    generos?: AnimesGeneroCreateNestedManyWithoutAnimeInput
+    generos?: GeneroCreateNestedManyWithoutAnimesInput
     favoritos?: FavoritoCreateNestedManyWithoutAnimeInput
     comentarios?: ComentarioCreateNestedManyWithoutAnimeInput
   }
@@ -16137,7 +13832,7 @@ export namespace Prisma {
     episodios: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    generos?: AnimesGeneroUncheckedCreateNestedManyWithoutAnimeInput
+    generos?: GeneroUncheckedCreateNestedManyWithoutAnimesInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutAnimeInput
     comentarios?: ComentarioUncheckedCreateNestedManyWithoutAnimeInput
   }
@@ -16260,7 +13955,7 @@ export namespace Prisma {
   export type TiposUsuarioUpdateWithoutUsuariosInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -16270,7 +13965,7 @@ export namespace Prisma {
   export type TiposUsuarioUncheckedUpdateWithoutUsuariosInput = {
     id?: StringFieldUpdateOperationsInput | string
     nome?: StringFieldUpdateOperationsInput | string
-    descricao?: StringFieldUpdateOperationsInput | string
+    descricao?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -16450,7 +14145,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuario?: TiposUsuarioCreateNestedOneWithoutUsuariosInput
     animes?: AnimesCreateNestedManyWithoutUserInput
@@ -16467,7 +14162,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuarioId?: string | null
     animes?: AnimesUncheckedCreateNestedManyWithoutUserInput
@@ -16482,22 +14177,21 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutMangasInput, UserUncheckedCreateWithoutMangasInput>
   }
 
-  export type MangasGeneroCreateWithoutMangaInput = {
-    genero: GeneroCreateNestedOneWithoutMangasInput
+  export type GeneroCreateWithoutMangasInput = {
+    id?: string
+    nome: string
+    animes?: AnimesCreateNestedManyWithoutGenerosInput
   }
 
-  export type MangasGeneroUncheckedCreateWithoutMangaInput = {
-    generoId: string
+  export type GeneroUncheckedCreateWithoutMangasInput = {
+    id?: string
+    nome: string
+    animes?: AnimesUncheckedCreateNestedManyWithoutGenerosInput
   }
 
-  export type MangasGeneroCreateOrConnectWithoutMangaInput = {
-    where: MangasGeneroWhereUniqueInput
-    create: XOR<MangasGeneroCreateWithoutMangaInput, MangasGeneroUncheckedCreateWithoutMangaInput>
-  }
-
-  export type MangasGeneroCreateManyMangaInputEnvelope = {
-    data: MangasGeneroCreateManyMangaInput | MangasGeneroCreateManyMangaInput[]
-    skipDuplicates?: boolean
+  export type GeneroCreateOrConnectWithoutMangasInput = {
+    where: GeneroWhereUniqueInput
+    create: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput>
   }
 
   export type FavoritoCreateWithoutMangaInput = {
@@ -16540,7 +14234,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuario?: TiposUsuarioUpdateOneWithoutUsuariosNestedInput
     animes?: AnimesUpdateManyWithoutUserNestedInput
@@ -16557,7 +14251,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuarioId?: NullableStringFieldUpdateOperationsInput | string | null
     animes?: AnimesUncheckedUpdateManyWithoutUserNestedInput
@@ -16567,28 +14261,28 @@ export namespace Prisma {
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type MangasGeneroUpsertWithWhereUniqueWithoutMangaInput = {
-    where: MangasGeneroWhereUniqueInput
-    update: XOR<MangasGeneroUpdateWithoutMangaInput, MangasGeneroUncheckedUpdateWithoutMangaInput>
-    create: XOR<MangasGeneroCreateWithoutMangaInput, MangasGeneroUncheckedCreateWithoutMangaInput>
+  export type GeneroUpsertWithWhereUniqueWithoutMangasInput = {
+    where: GeneroWhereUniqueInput
+    update: XOR<GeneroUpdateWithoutMangasInput, GeneroUncheckedUpdateWithoutMangasInput>
+    create: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput>
   }
 
-  export type MangasGeneroUpdateWithWhereUniqueWithoutMangaInput = {
-    where: MangasGeneroWhereUniqueInput
-    data: XOR<MangasGeneroUpdateWithoutMangaInput, MangasGeneroUncheckedUpdateWithoutMangaInput>
+  export type GeneroUpdateWithWhereUniqueWithoutMangasInput = {
+    where: GeneroWhereUniqueInput
+    data: XOR<GeneroUpdateWithoutMangasInput, GeneroUncheckedUpdateWithoutMangasInput>
   }
 
-  export type MangasGeneroUpdateManyWithWhereWithoutMangaInput = {
-    where: MangasGeneroScalarWhereInput
-    data: XOR<MangasGeneroUpdateManyMutationInput, MangasGeneroUncheckedUpdateManyWithoutMangaInput>
+  export type GeneroUpdateManyWithWhereWithoutMangasInput = {
+    where: GeneroScalarWhereInput
+    data: XOR<GeneroUpdateManyMutationInput, GeneroUncheckedUpdateManyWithoutMangasInput>
   }
 
-  export type MangasGeneroScalarWhereInput = {
-    AND?: MangasGeneroScalarWhereInput | MangasGeneroScalarWhereInput[]
-    OR?: MangasGeneroScalarWhereInput[]
-    NOT?: MangasGeneroScalarWhereInput | MangasGeneroScalarWhereInput[]
-    mangaId?: StringFilter<"MangasGenero"> | string
-    generoId?: StringFilter<"MangasGenero"> | string
+  export type GeneroScalarWhereInput = {
+    AND?: GeneroScalarWhereInput | GeneroScalarWhereInput[]
+    OR?: GeneroScalarWhereInput[]
+    NOT?: GeneroScalarWhereInput | GeneroScalarWhereInput[]
+    id?: StringFilter<"Genero"> | string
+    nome?: StringFilter<"Genero"> | string
   }
 
   export type FavoritoUpsertWithWhereUniqueWithoutMangaInput = {
@@ -16614,7 +14308,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuario?: TiposUsuarioCreateNestedOneWithoutUsuariosInput
     mangas?: MangasCreateNestedManyWithoutUserInput
@@ -16631,7 +14325,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuarioId?: string | null
     mangas?: MangasUncheckedCreateNestedManyWithoutUserInput
@@ -16646,22 +14340,21 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutAnimesInput, UserUncheckedCreateWithoutAnimesInput>
   }
 
-  export type AnimesGeneroCreateWithoutAnimeInput = {
-    genero: GeneroCreateNestedOneWithoutAnimesInput
+  export type GeneroCreateWithoutAnimesInput = {
+    id?: string
+    nome: string
+    mangas?: MangasCreateNestedManyWithoutGenerosInput
   }
 
-  export type AnimesGeneroUncheckedCreateWithoutAnimeInput = {
-    generoId: string
+  export type GeneroUncheckedCreateWithoutAnimesInput = {
+    id?: string
+    nome: string
+    mangas?: MangasUncheckedCreateNestedManyWithoutGenerosInput
   }
 
-  export type AnimesGeneroCreateOrConnectWithoutAnimeInput = {
-    where: AnimesGeneroWhereUniqueInput
-    create: XOR<AnimesGeneroCreateWithoutAnimeInput, AnimesGeneroUncheckedCreateWithoutAnimeInput>
-  }
-
-  export type AnimesGeneroCreateManyAnimeInputEnvelope = {
-    data: AnimesGeneroCreateManyAnimeInput | AnimesGeneroCreateManyAnimeInput[]
-    skipDuplicates?: boolean
+  export type GeneroCreateOrConnectWithoutAnimesInput = {
+    where: GeneroWhereUniqueInput
+    create: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput>
   }
 
   export type FavoritoCreateWithoutAnimeInput = {
@@ -16728,7 +14421,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuario?: TiposUsuarioUpdateOneWithoutUsuariosNestedInput
     mangas?: MangasUpdateManyWithoutUserNestedInput
@@ -16745,7 +14438,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuarioId?: NullableStringFieldUpdateOperationsInput | string | null
     mangas?: MangasUncheckedUpdateManyWithoutUserNestedInput
@@ -16755,28 +14448,20 @@ export namespace Prisma {
     notificacoes?: NotificacaoUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type AnimesGeneroUpsertWithWhereUniqueWithoutAnimeInput = {
-    where: AnimesGeneroWhereUniqueInput
-    update: XOR<AnimesGeneroUpdateWithoutAnimeInput, AnimesGeneroUncheckedUpdateWithoutAnimeInput>
-    create: XOR<AnimesGeneroCreateWithoutAnimeInput, AnimesGeneroUncheckedCreateWithoutAnimeInput>
+  export type GeneroUpsertWithWhereUniqueWithoutAnimesInput = {
+    where: GeneroWhereUniqueInput
+    update: XOR<GeneroUpdateWithoutAnimesInput, GeneroUncheckedUpdateWithoutAnimesInput>
+    create: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput>
   }
 
-  export type AnimesGeneroUpdateWithWhereUniqueWithoutAnimeInput = {
-    where: AnimesGeneroWhereUniqueInput
-    data: XOR<AnimesGeneroUpdateWithoutAnimeInput, AnimesGeneroUncheckedUpdateWithoutAnimeInput>
+  export type GeneroUpdateWithWhereUniqueWithoutAnimesInput = {
+    where: GeneroWhereUniqueInput
+    data: XOR<GeneroUpdateWithoutAnimesInput, GeneroUncheckedUpdateWithoutAnimesInput>
   }
 
-  export type AnimesGeneroUpdateManyWithWhereWithoutAnimeInput = {
-    where: AnimesGeneroScalarWhereInput
-    data: XOR<AnimesGeneroUpdateManyMutationInput, AnimesGeneroUncheckedUpdateManyWithoutAnimeInput>
-  }
-
-  export type AnimesGeneroScalarWhereInput = {
-    AND?: AnimesGeneroScalarWhereInput | AnimesGeneroScalarWhereInput[]
-    OR?: AnimesGeneroScalarWhereInput[]
-    NOT?: AnimesGeneroScalarWhereInput | AnimesGeneroScalarWhereInput[]
-    animeId?: StringFilter<"AnimesGenero"> | string
-    generoId?: StringFilter<"AnimesGenero"> | string
+  export type GeneroUpdateManyWithWhereWithoutAnimesInput = {
+    where: GeneroScalarWhereInput
+    data: XOR<GeneroUpdateManyMutationInput, GeneroUncheckedUpdateManyWithoutAnimesInput>
   }
 
   export type FavoritoUpsertWithWhereUniqueWithoutAnimeInput = {
@@ -16818,7 +14503,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuario?: TiposUsuarioCreateNestedOneWithoutUsuariosInput
     mangas?: MangasCreateNestedManyWithoutUserInput
@@ -16835,7 +14520,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuarioId?: string | null
     mangas?: MangasUncheckedCreateNestedManyWithoutUserInput
@@ -16868,7 +14553,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuario?: TiposUsuarioUpdateOneWithoutUsuariosNestedInput
     mangas?: MangasUpdateManyWithoutUserNestedInput
@@ -16885,7 +14570,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuarioId?: NullableStringFieldUpdateOperationsInput | string | null
     mangas?: MangasUncheckedUpdateManyWithoutUserNestedInput
@@ -16902,7 +14587,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuario?: TiposUsuarioCreateNestedOneWithoutUsuariosInput
     mangas?: MangasCreateNestedManyWithoutUserInput
@@ -16919,7 +14604,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuarioId?: string | null
     mangas?: MangasUncheckedCreateNestedManyWithoutUserInput
@@ -16943,7 +14628,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutAnimesInput
-    generos?: AnimesGeneroCreateNestedManyWithoutAnimeInput
+    generos?: GeneroCreateNestedManyWithoutAnimesInput
     comentarios?: ComentarioCreateNestedManyWithoutAnimeInput
   }
 
@@ -16956,7 +14641,7 @@ export namespace Prisma {
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    generos?: AnimesGeneroUncheckedCreateNestedManyWithoutAnimeInput
+    generos?: GeneroUncheckedCreateNestedManyWithoutAnimesInput
     comentarios?: ComentarioUncheckedCreateNestedManyWithoutAnimeInput
   }
 
@@ -16973,7 +14658,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user?: UserCreateNestedOneWithoutMangasInput
-    generos?: MangasGeneroCreateNestedManyWithoutMangaInput
+    generos?: GeneroCreateNestedManyWithoutMangasInput
   }
 
   export type MangasUncheckedCreateWithoutFavoritosInput = {
@@ -16984,7 +14669,7 @@ export namespace Prisma {
     userId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    generos?: MangasGeneroUncheckedCreateNestedManyWithoutMangaInput
+    generos?: GeneroUncheckedCreateNestedManyWithoutMangasInput
   }
 
   export type MangasCreateOrConnectWithoutFavoritosInput = {
@@ -17010,7 +14695,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuario?: TiposUsuarioUpdateOneWithoutUsuariosNestedInput
     mangas?: MangasUpdateManyWithoutUserNestedInput
@@ -17027,7 +14712,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuarioId?: NullableStringFieldUpdateOperationsInput | string | null
     mangas?: MangasUncheckedUpdateManyWithoutUserNestedInput
@@ -17057,7 +14742,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutAnimesNestedInput
-    generos?: AnimesGeneroUpdateManyWithoutAnimeNestedInput
+    generos?: GeneroUpdateManyWithoutAnimesNestedInput
     comentarios?: ComentarioUpdateManyWithoutAnimeNestedInput
   }
 
@@ -17070,7 +14755,7 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    generos?: AnimesGeneroUncheckedUpdateManyWithoutAnimeNestedInput
+    generos?: GeneroUncheckedUpdateManyWithoutAnimesNestedInput
     comentarios?: ComentarioUncheckedUpdateManyWithoutAnimeNestedInput
   }
 
@@ -17093,7 +14778,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutMangasNestedInput
-    generos?: MangasGeneroUpdateManyWithoutMangaNestedInput
+    generos?: GeneroUpdateManyWithoutMangasNestedInput
   }
 
   export type MangasUncheckedUpdateWithoutFavoritosInput = {
@@ -17104,7 +14789,7 @@ export namespace Prisma {
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    generos?: MangasGeneroUncheckedUpdateManyWithoutMangaNestedInput
+    generos?: GeneroUncheckedUpdateManyWithoutMangasNestedInput
   }
 
   export type UserCreateWithoutComentariosInput = {
@@ -17114,7 +14799,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuario?: TiposUsuarioCreateNestedOneWithoutUsuariosInput
     mangas?: MangasCreateNestedManyWithoutUserInput
@@ -17131,7 +14816,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuarioId?: string | null
     mangas?: MangasUncheckedCreateNestedManyWithoutUserInput
@@ -17155,7 +14840,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutAnimesInput
-    generos?: AnimesGeneroCreateNestedManyWithoutAnimeInput
+    generos?: GeneroCreateNestedManyWithoutAnimesInput
     favoritos?: FavoritoCreateNestedManyWithoutAnimeInput
   }
 
@@ -17168,7 +14853,7 @@ export namespace Prisma {
     userId: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    generos?: AnimesGeneroUncheckedCreateNestedManyWithoutAnimeInput
+    generos?: GeneroUncheckedCreateNestedManyWithoutAnimesInput
     favoritos?: FavoritoUncheckedCreateNestedManyWithoutAnimeInput
   }
 
@@ -17195,7 +14880,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuario?: TiposUsuarioUpdateOneWithoutUsuariosNestedInput
     mangas?: MangasUpdateManyWithoutUserNestedInput
@@ -17212,7 +14897,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuarioId?: NullableStringFieldUpdateOperationsInput | string | null
     mangas?: MangasUncheckedUpdateManyWithoutUserNestedInput
@@ -17242,7 +14927,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutAnimesNestedInput
-    generos?: AnimesGeneroUpdateManyWithoutAnimeNestedInput
+    generos?: GeneroUpdateManyWithoutAnimesNestedInput
     favoritos?: FavoritoUpdateManyWithoutAnimeNestedInput
   }
 
@@ -17255,76 +14940,8 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    generos?: AnimesGeneroUncheckedUpdateManyWithoutAnimeNestedInput
+    generos?: GeneroUncheckedUpdateManyWithoutAnimesNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutAnimeNestedInput
-  }
-
-  export type AnimesGeneroCreateWithoutGeneroInput = {
-    anime: AnimesCreateNestedOneWithoutGenerosInput
-  }
-
-  export type AnimesGeneroUncheckedCreateWithoutGeneroInput = {
-    animeId: string
-  }
-
-  export type AnimesGeneroCreateOrConnectWithoutGeneroInput = {
-    where: AnimesGeneroWhereUniqueInput
-    create: XOR<AnimesGeneroCreateWithoutGeneroInput, AnimesGeneroUncheckedCreateWithoutGeneroInput>
-  }
-
-  export type AnimesGeneroCreateManyGeneroInputEnvelope = {
-    data: AnimesGeneroCreateManyGeneroInput | AnimesGeneroCreateManyGeneroInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type MangasGeneroCreateWithoutGeneroInput = {
-    manga: MangasCreateNestedOneWithoutGenerosInput
-  }
-
-  export type MangasGeneroUncheckedCreateWithoutGeneroInput = {
-    mangaId: string
-  }
-
-  export type MangasGeneroCreateOrConnectWithoutGeneroInput = {
-    where: MangasGeneroWhereUniqueInput
-    create: XOR<MangasGeneroCreateWithoutGeneroInput, MangasGeneroUncheckedCreateWithoutGeneroInput>
-  }
-
-  export type MangasGeneroCreateManyGeneroInputEnvelope = {
-    data: MangasGeneroCreateManyGeneroInput | MangasGeneroCreateManyGeneroInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type AnimesGeneroUpsertWithWhereUniqueWithoutGeneroInput = {
-    where: AnimesGeneroWhereUniqueInput
-    update: XOR<AnimesGeneroUpdateWithoutGeneroInput, AnimesGeneroUncheckedUpdateWithoutGeneroInput>
-    create: XOR<AnimesGeneroCreateWithoutGeneroInput, AnimesGeneroUncheckedCreateWithoutGeneroInput>
-  }
-
-  export type AnimesGeneroUpdateWithWhereUniqueWithoutGeneroInput = {
-    where: AnimesGeneroWhereUniqueInput
-    data: XOR<AnimesGeneroUpdateWithoutGeneroInput, AnimesGeneroUncheckedUpdateWithoutGeneroInput>
-  }
-
-  export type AnimesGeneroUpdateManyWithWhereWithoutGeneroInput = {
-    where: AnimesGeneroScalarWhereInput
-    data: XOR<AnimesGeneroUpdateManyMutationInput, AnimesGeneroUncheckedUpdateManyWithoutGeneroInput>
-  }
-
-  export type MangasGeneroUpsertWithWhereUniqueWithoutGeneroInput = {
-    where: MangasGeneroWhereUniqueInput
-    update: XOR<MangasGeneroUpdateWithoutGeneroInput, MangasGeneroUncheckedUpdateWithoutGeneroInput>
-    create: XOR<MangasGeneroCreateWithoutGeneroInput, MangasGeneroUncheckedCreateWithoutGeneroInput>
-  }
-
-  export type MangasGeneroUpdateWithWhereUniqueWithoutGeneroInput = {
-    where: MangasGeneroWhereUniqueInput
-    data: XOR<MangasGeneroUpdateWithoutGeneroInput, MangasGeneroUncheckedUpdateWithoutGeneroInput>
-  }
-
-  export type MangasGeneroUpdateManyWithWhereWithoutGeneroInput = {
-    where: MangasGeneroScalarWhereInput
-    data: XOR<MangasGeneroUpdateManyMutationInput, MangasGeneroUncheckedUpdateManyWithoutGeneroInput>
   }
 
   export type AnimesCreateWithoutGenerosInput = {
@@ -17358,83 +14975,6 @@ export namespace Prisma {
     create: XOR<AnimesCreateWithoutGenerosInput, AnimesUncheckedCreateWithoutGenerosInput>
   }
 
-  export type GeneroCreateWithoutAnimesInput = {
-    id?: string
-    nome: string
-    mangas?: MangasGeneroCreateNestedManyWithoutGeneroInput
-  }
-
-  export type GeneroUncheckedCreateWithoutAnimesInput = {
-    id?: string
-    nome: string
-    mangas?: MangasGeneroUncheckedCreateNestedManyWithoutGeneroInput
-  }
-
-  export type GeneroCreateOrConnectWithoutAnimesInput = {
-    where: GeneroWhereUniqueInput
-    create: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput>
-  }
-
-  export type AnimesUpsertWithoutGenerosInput = {
-    update: XOR<AnimesUpdateWithoutGenerosInput, AnimesUncheckedUpdateWithoutGenerosInput>
-    create: XOR<AnimesCreateWithoutGenerosInput, AnimesUncheckedCreateWithoutGenerosInput>
-    where?: AnimesWhereInput
-  }
-
-  export type AnimesUpdateToOneWithWhereWithoutGenerosInput = {
-    where?: AnimesWhereInput
-    data: XOR<AnimesUpdateWithoutGenerosInput, AnimesUncheckedUpdateWithoutGenerosInput>
-  }
-
-  export type AnimesUpdateWithoutGenerosInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    episodios?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutAnimesNestedInput
-    favoritos?: FavoritoUpdateManyWithoutAnimeNestedInput
-    comentarios?: ComentarioUpdateManyWithoutAnimeNestedInput
-  }
-
-  export type AnimesUncheckedUpdateWithoutGenerosInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    episodios?: IntFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    favoritos?: FavoritoUncheckedUpdateManyWithoutAnimeNestedInput
-    comentarios?: ComentarioUncheckedUpdateManyWithoutAnimeNestedInput
-  }
-
-  export type GeneroUpsertWithoutAnimesInput = {
-    update: XOR<GeneroUpdateWithoutAnimesInput, GeneroUncheckedUpdateWithoutAnimesInput>
-    create: XOR<GeneroCreateWithoutAnimesInput, GeneroUncheckedCreateWithoutAnimesInput>
-    where?: GeneroWhereInput
-  }
-
-  export type GeneroUpdateToOneWithWhereWithoutAnimesInput = {
-    where?: GeneroWhereInput
-    data: XOR<GeneroUpdateWithoutAnimesInput, GeneroUncheckedUpdateWithoutAnimesInput>
-  }
-
-  export type GeneroUpdateWithoutAnimesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nome?: StringFieldUpdateOperationsInput | string
-    mangas?: MangasGeneroUpdateManyWithoutGeneroNestedInput
-  }
-
-  export type GeneroUncheckedUpdateWithoutAnimesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nome?: StringFieldUpdateOperationsInput | string
-    mangas?: MangasGeneroUncheckedUpdateManyWithoutGeneroNestedInput
-  }
-
   export type MangasCreateWithoutGenerosInput = {
     id?: string
     title: string
@@ -17462,77 +15002,36 @@ export namespace Prisma {
     create: XOR<MangasCreateWithoutGenerosInput, MangasUncheckedCreateWithoutGenerosInput>
   }
 
-  export type GeneroCreateWithoutMangasInput = {
-    id?: string
-    nome: string
-    animes?: AnimesGeneroCreateNestedManyWithoutGeneroInput
+  export type AnimesUpsertWithWhereUniqueWithoutGenerosInput = {
+    where: AnimesWhereUniqueInput
+    update: XOR<AnimesUpdateWithoutGenerosInput, AnimesUncheckedUpdateWithoutGenerosInput>
+    create: XOR<AnimesCreateWithoutGenerosInput, AnimesUncheckedCreateWithoutGenerosInput>
   }
 
-  export type GeneroUncheckedCreateWithoutMangasInput = {
-    id?: string
-    nome: string
-    animes?: AnimesGeneroUncheckedCreateNestedManyWithoutGeneroInput
+  export type AnimesUpdateWithWhereUniqueWithoutGenerosInput = {
+    where: AnimesWhereUniqueInput
+    data: XOR<AnimesUpdateWithoutGenerosInput, AnimesUncheckedUpdateWithoutGenerosInput>
   }
 
-  export type GeneroCreateOrConnectWithoutMangasInput = {
-    where: GeneroWhereUniqueInput
-    create: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput>
+  export type AnimesUpdateManyWithWhereWithoutGenerosInput = {
+    where: AnimesScalarWhereInput
+    data: XOR<AnimesUpdateManyMutationInput, AnimesUncheckedUpdateManyWithoutGenerosInput>
   }
 
-  export type MangasUpsertWithoutGenerosInput = {
+  export type MangasUpsertWithWhereUniqueWithoutGenerosInput = {
+    where: MangasWhereUniqueInput
     update: XOR<MangasUpdateWithoutGenerosInput, MangasUncheckedUpdateWithoutGenerosInput>
     create: XOR<MangasCreateWithoutGenerosInput, MangasUncheckedCreateWithoutGenerosInput>
-    where?: MangasWhereInput
   }
 
-  export type MangasUpdateToOneWithWhereWithoutGenerosInput = {
-    where?: MangasWhereInput
+  export type MangasUpdateWithWhereUniqueWithoutGenerosInput = {
+    where: MangasWhereUniqueInput
     data: XOR<MangasUpdateWithoutGenerosInput, MangasUncheckedUpdateWithoutGenerosInput>
   }
 
-  export type MangasUpdateWithoutGenerosInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneWithoutMangasNestedInput
-    favoritos?: FavoritoUpdateManyWithoutMangaNestedInput
-  }
-
-  export type MangasUncheckedUpdateWithoutGenerosInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: StringFieldUpdateOperationsInput | string
-    image?: StringFieldUpdateOperationsInput | string
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    favoritos?: FavoritoUncheckedUpdateManyWithoutMangaNestedInput
-  }
-
-  export type GeneroUpsertWithoutMangasInput = {
-    update: XOR<GeneroUpdateWithoutMangasInput, GeneroUncheckedUpdateWithoutMangasInput>
-    create: XOR<GeneroCreateWithoutMangasInput, GeneroUncheckedCreateWithoutMangasInput>
-    where?: GeneroWhereInput
-  }
-
-  export type GeneroUpdateToOneWithWhereWithoutMangasInput = {
-    where?: GeneroWhereInput
-    data: XOR<GeneroUpdateWithoutMangasInput, GeneroUncheckedUpdateWithoutMangasInput>
-  }
-
-  export type GeneroUpdateWithoutMangasInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nome?: StringFieldUpdateOperationsInput | string
-    animes?: AnimesGeneroUpdateManyWithoutGeneroNestedInput
-  }
-
-  export type GeneroUncheckedUpdateWithoutMangasInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    nome?: StringFieldUpdateOperationsInput | string
-    animes?: AnimesGeneroUncheckedUpdateManyWithoutGeneroNestedInput
+  export type MangasUpdateManyWithWhereWithoutGenerosInput = {
+    where: MangasScalarWhereInput
+    data: XOR<MangasUpdateManyMutationInput, MangasUncheckedUpdateManyWithoutGenerosInput>
   }
 
   export type UserCreateWithoutNotificacoesInput = {
@@ -17542,7 +15041,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuario?: TiposUsuarioCreateNestedOneWithoutUsuariosInput
     mangas?: MangasCreateNestedManyWithoutUserInput
@@ -17559,7 +15058,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
     tipoUsuarioId?: string | null
     mangas?: MangasUncheckedCreateNestedManyWithoutUserInput
@@ -17592,7 +15091,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuario?: TiposUsuarioUpdateOneWithoutUsuariosNestedInput
     mangas?: MangasUpdateManyWithoutUserNestedInput
@@ -17609,7 +15108,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     tipoUsuarioId?: NullableStringFieldUpdateOperationsInput | string | null
     mangas?: MangasUncheckedUpdateManyWithoutUserNestedInput
@@ -17626,7 +15125,7 @@ export namespace Prisma {
     password: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    deletedAt: Date | string
+    deletedAt?: Date | string | null
     ativado?: boolean
   }
 
@@ -17637,7 +15136,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     mangas?: MangasUpdateManyWithoutUserNestedInput
     animes?: AnimesUpdateManyWithoutUserNestedInput
@@ -17654,7 +15153,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
     mangas?: MangasUncheckedUpdateManyWithoutUserNestedInput
     animes?: AnimesUncheckedUpdateManyWithoutUserNestedInput
@@ -17671,7 +15170,7 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ativado?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -17728,7 +15227,7 @@ export namespace Prisma {
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    generos?: MangasGeneroUpdateManyWithoutMangaNestedInput
+    generos?: GeneroUpdateManyWithoutMangasNestedInput
     favoritos?: FavoritoUpdateManyWithoutMangaNestedInput
   }
 
@@ -17739,7 +15238,7 @@ export namespace Prisma {
     image?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    generos?: MangasGeneroUncheckedUpdateManyWithoutMangaNestedInput
+    generos?: GeneroUncheckedUpdateManyWithoutMangasNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutMangaNestedInput
   }
 
@@ -17760,7 +15259,7 @@ export namespace Prisma {
     episodios?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    generos?: AnimesGeneroUpdateManyWithoutAnimeNestedInput
+    generos?: GeneroUpdateManyWithoutAnimesNestedInput
     favoritos?: FavoritoUpdateManyWithoutAnimeNestedInput
     comentarios?: ComentarioUpdateManyWithoutAnimeNestedInput
   }
@@ -17773,7 +15272,7 @@ export namespace Prisma {
     episodios?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    generos?: AnimesGeneroUncheckedUpdateManyWithoutAnimeNestedInput
+    generos?: GeneroUncheckedUpdateManyWithoutAnimesNestedInput
     favoritos?: FavoritoUncheckedUpdateManyWithoutAnimeNestedInput
     comentarios?: ComentarioUncheckedUpdateManyWithoutAnimeNestedInput
   }
@@ -17869,26 +15368,27 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type MangasGeneroCreateManyMangaInput = {
-    generoId: string
-  }
-
   export type FavoritoCreateManyMangaInput = {
     id?: string
     userId: string
     animeId?: string | null
   }
 
-  export type MangasGeneroUpdateWithoutMangaInput = {
-    genero?: GeneroUpdateOneRequiredWithoutMangasNestedInput
+  export type GeneroUpdateWithoutMangasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    animes?: AnimesUpdateManyWithoutGenerosNestedInput
   }
 
-  export type MangasGeneroUncheckedUpdateWithoutMangaInput = {
-    generoId?: StringFieldUpdateOperationsInput | string
+  export type GeneroUncheckedUpdateWithoutMangasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    animes?: AnimesUncheckedUpdateManyWithoutGenerosNestedInput
   }
 
-  export type MangasGeneroUncheckedUpdateManyWithoutMangaInput = {
-    generoId?: StringFieldUpdateOperationsInput | string
+  export type GeneroUncheckedUpdateManyWithoutMangasInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
   }
 
   export type FavoritoUpdateWithoutMangaInput = {
@@ -17909,10 +15409,6 @@ export namespace Prisma {
     animeId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type AnimesGeneroCreateManyAnimeInput = {
-    generoId: string
-  }
-
   export type FavoritoCreateManyAnimeInput = {
     id?: string
     userId: string
@@ -17926,16 +15422,21 @@ export namespace Prisma {
     userId: string
   }
 
-  export type AnimesGeneroUpdateWithoutAnimeInput = {
-    genero?: GeneroUpdateOneRequiredWithoutAnimesNestedInput
+  export type GeneroUpdateWithoutAnimesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    mangas?: MangasUpdateManyWithoutGenerosNestedInput
   }
 
-  export type AnimesGeneroUncheckedUpdateWithoutAnimeInput = {
-    generoId?: StringFieldUpdateOperationsInput | string
+  export type GeneroUncheckedUpdateWithoutAnimesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
+    mangas?: MangasUncheckedUpdateManyWithoutGenerosNestedInput
   }
 
-  export type AnimesGeneroUncheckedUpdateManyWithoutAnimeInput = {
-    generoId?: StringFieldUpdateOperationsInput | string
+  export type GeneroUncheckedUpdateManyWithoutAnimesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    nome?: StringFieldUpdateOperationsInput | string
   }
 
   export type FavoritoUpdateWithoutAnimeInput = {
@@ -17977,36 +15478,73 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
   }
 
-  export type AnimesGeneroCreateManyGeneroInput = {
-    animeId: string
+  export type AnimesUpdateWithoutGenerosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    episodios?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutAnimesNestedInput
+    favoritos?: FavoritoUpdateManyWithoutAnimeNestedInput
+    comentarios?: ComentarioUpdateManyWithoutAnimeNestedInput
   }
 
-  export type MangasGeneroCreateManyGeneroInput = {
-    mangaId: string
+  export type AnimesUncheckedUpdateWithoutGenerosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    episodios?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    favoritos?: FavoritoUncheckedUpdateManyWithoutAnimeNestedInput
+    comentarios?: ComentarioUncheckedUpdateManyWithoutAnimeNestedInput
   }
 
-  export type AnimesGeneroUpdateWithoutGeneroInput = {
-    anime?: AnimesUpdateOneRequiredWithoutGenerosNestedInput
+  export type AnimesUncheckedUpdateManyWithoutGenerosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    episodios?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type AnimesGeneroUncheckedUpdateWithoutGeneroInput = {
-    animeId?: StringFieldUpdateOperationsInput | string
+  export type MangasUpdateWithoutGenerosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutMangasNestedInput
+    favoritos?: FavoritoUpdateManyWithoutMangaNestedInput
   }
 
-  export type AnimesGeneroUncheckedUpdateManyWithoutGeneroInput = {
-    animeId?: StringFieldUpdateOperationsInput | string
+  export type MangasUncheckedUpdateWithoutGenerosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    favoritos?: FavoritoUncheckedUpdateManyWithoutMangaNestedInput
   }
 
-  export type MangasGeneroUpdateWithoutGeneroInput = {
-    manga?: MangasUpdateOneRequiredWithoutGenerosNestedInput
-  }
-
-  export type MangasGeneroUncheckedUpdateWithoutGeneroInput = {
-    mangaId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type MangasGeneroUncheckedUpdateManyWithoutGeneroInput = {
-    mangaId?: StringFieldUpdateOperationsInput | string
+  export type MangasUncheckedUpdateManyWithoutGenerosInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    image?: StringFieldUpdateOperationsInput | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

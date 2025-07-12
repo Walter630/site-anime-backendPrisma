@@ -1,6 +1,7 @@
 import { AnimesRepository } from './../repository/AnimesRepository';
 import { Animes } from "../domain/Animes";
 import { getIO } from '../utils/sockets/sokec';
+import { Generos } from '../domain/Generos';
 
 export class AnimesServices {
     private animeRepo: AnimesRepository;
@@ -10,9 +11,11 @@ export class AnimesServices {
     async createAnime(anime: Animes): Promise<Animes> {
         try{
             const criar = await this.animeRepo.create(anime);
-            if(!criar.adminId){
-                throw new Error('userId obrigatório');
+            if(!criar.userId) throw new Error('userId e adminId são obrigatórios');
+            if (typeof anime.episodios !== 'number') {
+                throw new Error('Número de episódios é obrigatório e deve ser inteiro');
             }
+            
             getIO().emit('notification', {
                 type: 'anime_created',
                 message: 'Um novo anime foi criado',
@@ -21,12 +24,20 @@ export class AnimesServices {
                     title: criar.title,
                     image: criar.image,
                     description: criar.description,
+                    generos: [] as Generos[]
                 }
             });
-            console.log(criar)
             return Animes.build({
-               ...criar
-            });
+               id: criar.id,
+               title: criar.title,
+               image: criar.image,
+               description: criar.description,
+               episodios: criar.episodios,
+               dataCreateAt: criar.createdAt,
+               dataUpdateAt: criar.updatedAt,
+               userId: criar.userId,
+               generos: [] as Generos[]
+            } as Animes);
         }catch(err){
             console.log(err)
             throw new Error('erro ao criar anime')
@@ -43,7 +54,9 @@ export class AnimesServices {
                 description: linha.description,
                 episodios: linha.episodios,
                 dataCreateAt: linha.dataCreateAt,
-                dataUpdateAt: linha.dataUpdateAt
+                dataUpdateAt: linha.dataUpdateAt,
+                generos: linha.generos as Generos[],
+                userId: linha.userId
             }))
         }catch(err){
             console.log(err)
@@ -97,7 +110,8 @@ export class AnimesServices {
                 description: data.description ?? anime.description,
                 episodios: data.episodios ?? anime.episodios,
                 dataCreateAt: anime.dataCreateAt,
-                dataUpdateAt: new Date()
+                dataUpdateAt: new Date(),
+                generos: anime.generos as Generos[] || []
             });
 
             const atualizado = await this.animeRepo.atualizar(id, updatedAnime);

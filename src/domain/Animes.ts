@@ -1,4 +1,5 @@
 import { randomUUID } from "crypto";
+import { Generos } from "./Generos";
 
 export type AnimesProps = {
     id: string,
@@ -8,19 +9,19 @@ export type AnimesProps = {
     episodios: number,
     dataCreateAt: Date,
     dataUpdateAt: Date,
-    adminId?: string,
     userId?: string,
 
-    // generos: Generos[]
+    generos: Generos[]
     // favoritos: Favoritos[]
     // comentarios: Comentarios[]
 }
 
 export class Animes {
     constructor(private props: AnimesProps) {}
+    private _generos: Generos[] = [];
 
-    public static create(title: string, image: string, description: string, episodios: number): Animes {
-        return new Animes({ id: randomUUID().toString(), title, image, description, episodios, dataCreateAt: new Date(),dataUpdateAt: new Date(), adminId: undefined, userId: undefined });
+    public static create(title: string, image: string, description: string, episodios: number, generos: Generos[]): Animes {
+            return new Animes({ id: randomUUID().toString(), title, image, description, episodios, dataCreateAt: new Date(),dataUpdateAt: new Date(), userId: undefined, generos: generos });
         }
 
     static build(props: AnimesProps) {
@@ -51,8 +52,13 @@ export class Animes {
     get userId(): string | undefined {
         return this.props.userId;
     }
-    get adminId(): string | undefined {
-        return this.props.adminId
-    } 
-    
+    set userId(userId: string) {
+        this.props.userId = userId;
+    }
+    get generos(): Generos[] {
+        return this._generos;
+    }
+    set generos(generos: Generos[]) {
+        this._generos = generos;
+    }
 }

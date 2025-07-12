@@ -13,9 +13,9 @@ datasource db {
  */
 
 model TiposUsuario {
-  id        String @id @default(cuid())
-  nome      String @unique // ex.: ADMIN, EDITOR, LEITOR
-  descricao String
+  id        String  @id @default(cuid())
+  nome      String  @unique // ex.: ADMIN, EDITOR, LEITOR
+  descricao String?
   usuarios  User[] // lista de usuários desse tipo
 
   createdAt DateTime  @default(now())
@@ -23,7 +23,7 @@ model TiposUsuario {
   deletedAt DateTime? @map("deleted_at") @db.DateTime()
   ativado   Boolean   @default(true) @db.TinyInt()
 
-  @@map("tipos_usuarios")
+  @@map("tipos_usuario")
 }
 
 /**
@@ -31,14 +31,14 @@ model TiposUsuario {
  */
 
 model User {
-  id        String   @id @default(cuid())
-  nome      String   @unique @db.VarChar(100)
-  email     String   @unique @db.VarChar(100)
-  password  String   @db.VarChar(255)
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at") @db.DateTime()
-  deletedAt DateTime @map("deleted_at") @db.DateTime()
-  ativado   Boolean  @default(true) @db.TinyInt()
+  id        String    @id @default(cuid())
+  nome      String    @unique @db.VarChar(100)
+  email     String    @unique @db.VarChar(100)
+  password  String    @db.VarChar(255)
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at") @db.DateTime()
+  deletedAt DateTime? @map("deleted_at") @db.DateTime()
+  ativado   Boolean   @default(true) @db.TinyInt()
 
   tipoUsuarioId String?       @map("tipo_usuario_id") @db.VarChar(255)
   tipoUsuario   TiposUsuario? @relation(fields: [tipoUsuarioId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -66,7 +66,7 @@ model Mangas {
   userId String? // <-- alterado (admin removido)
   user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
-  generos   MangasGenero[]
+  generos   Genero[]
   favoritos Favorito[]
 
   createdAt DateTime @default(now()) // para auditoria
@@ -89,7 +89,7 @@ model Animes {
   userId String // ← único “dono” agora
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
-  generos     AnimesGenero[]
+  generos     Genero[]
   favoritos   Favorito[]
   comentarios Comentario[]
 
@@ -142,34 +142,12 @@ model Comentario {
 }
 
 model Genero {
-  id     String         @id @default(cuid())
+  id     String   @id @default(cuid())
   nome   String
-  animes AnimesGenero[]
-  mangas MangasGenero[]
+  animes Animes[]
+  mangas Mangas[]
 
   @@map("generos")
-}
-
-model AnimesGenero {
-  animeId  String
-  generoId String
-
-  anime  Animes @relation(fields: [animeId], references: [id])
-  genero Genero @relation(fields: [generoId], references: [id])
-
-  @@id([animeId, generoId])
-  @@map("animes_generos")
-}
-
-model MangasGenero {
-  mangaId  String
-  generoId String
-
-  manga  Mangas @relation(fields: [mangaId], references: [id])
-  genero Genero @relation(fields: [generoId], references: [id])
-
-  @@id([mangaId, generoId])
-  @@map("mangas_generos")
 }
 
 model Notificacao {

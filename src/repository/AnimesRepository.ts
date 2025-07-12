@@ -1,26 +1,35 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../generated/prisma";
 import { Animes } from "../domain/Animes";
+import { Generos } from "../domain/Generos";
 
 const prisma = new PrismaClient()
 export class AnimesRepository {
     async create(animes: Animes) {
-        try{
+        try {
+            if (!animes.userId) {
+                throw new Error('userId é obrigatório');
+            }
+            if (typeof animes.episodios !== 'number') {
+                throw new Error('Número de episódios é obrigatório e deve ser inteiro');
+            }
+            
             const criarAnime = await prisma.animes.create({
                 data: {
                     title: animes.title,
                     description: animes.description,
                     image: animes.image,
                     episodios: animes.episodios,
-                    userId: animes.userId!,   // <-- o `!` garante que não será undefined
-                    adminId: animes.adminId!, // <-- idem
+                    userId: animes.userId
                 },
             });
-            return criarAnime
-        }catch(err){
-            console.log(err)
-            throw new Error('Erro ao criar anime')
-        }       
+    
+            return criarAnime;
+        } catch (err) {
+            console.error('Erro ao criar anime (repositorio):', err);
+            throw new Error('Erro ao criar anime');
+        }
     }
+
 
     async listarAnimes(): Promise<Animes[]> {
     try {
@@ -33,9 +42,9 @@ export class AnimesRepository {
                 image: linha.image,
                 description: linha.description,
                 episodios: linha.episodios,
-                dataCreateAt: linha.dataCreateAt,
-                dataUpdateAt: linha.dataUpdateAt,
-                adminId: linha.adminId,
+                dataCreateAt: linha.createdAt,
+                dataUpdateAt: linha.updatedAt,
+                generos: [],
                 userId: linha.userId,
                 // Adicione outros campos se necessário
             })
@@ -56,10 +65,10 @@ export class AnimesRepository {
                 image: buscar.image,
                 description: buscar.description,
                 episodios: buscar.episodios,
-                dataCreateAt: buscar.dataCreateAt,
-                dataUpdateAt: buscar.dataUpdateAt,
-                adminId: buscar.adminId,
-                userId: buscar.userId
+                dataCreateAt: buscar.createdAt,
+                dataUpdateAt: buscar.updatedAt,
+                userId: buscar.userId,
+                generos: []
             })
         }catch(err){
             console.log(err)

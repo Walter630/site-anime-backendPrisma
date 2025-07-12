@@ -8,20 +8,23 @@ type UserProps = {
     password: string;
     createdAt?: Date;
     updatedAt?: Date;
-    deletedAt?: Date;
+    deletedAt?: Date | null;
     tipo?: TiposUsuario;
     ativado?: boolean
 };
 
 export default  class User {
-    private constructor(private props: UserProps) {}
+     constructor(private props: UserProps) {}
 
     public static create(props: Omit<UserProps, 'id'>): User{
         return new User (
             {
                 ...props,
                id: randomUUID().toString(),
-               
+               createdAt: new Date(),
+               updatedAt: new Date(),
+               ativado: true,
+            
             }
         )
     }
@@ -60,7 +63,7 @@ export default  class User {
         return this.props.ativado
     }
 
-    public get deletedAt():  Date | undefined{
+    public get deletedAt():  Date | null | undefined{
         return this.props.deletedAt
     }
 

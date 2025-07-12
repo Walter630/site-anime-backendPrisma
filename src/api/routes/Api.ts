@@ -1,19 +1,29 @@
-import express, { Application, RequestHandler } from "express";
+import { Router } from "express";
 
 export class Api {
-    public readonly app: Application;
+  private router = Router();
 
-    constructor() {
-        this.app = express();
-        this.app.use(express.json());
+  // aceita qualquer quantidade de handlers/middlewares
+  addRotas(path: string, method: string, ...handlers: any[]) {
+    switch (method.toUpperCase()) {
+      case "GET":
+        this.router.get(path, ...handlers);
+        break;
+      case "POST":
+        this.router.post(path, ...handlers);
+        break;
+      case "PUT":
+        this.router.put(path, ...handlers);
+        break;
+      case "DELETE":
+        this.router.delete(path, ...handlers);
+        break;
+      default:
+        throw new Error(`Método ${method} não suportado`);
     }
+  }
 
-    public addRotas(caminho: string, metodo: string, handler: RequestHandler) {
-        (this.app as any)[metodo.toLowerCase()](caminho, handler);
-    }
-    public start(port: number) {
-        this.app.listen(port, () => {
-            console.log(`API is running on port ${port}`);
-        });
-    }
+  get expressRouter() {
+    return this.router;
+  }
 }
