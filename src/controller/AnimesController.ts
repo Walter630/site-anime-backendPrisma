@@ -9,7 +9,6 @@ export class AnimesController {
   listarAnimes = async (_: Request, res: Response) => {
     try {
       const animes = await this.animeService.listarAnimes();
-      if (!animes.length) return res.status(404).json({ error: "Nenhum anime encontrado" });
       res.status(200).json(animes);
     } catch (e) {
       console.error(e);
@@ -22,9 +21,8 @@ export class AnimesController {
     try {
       const { title, description, image, episodios, generos } = req.body;
       const anime = Animes.create(title, image, description, episodios, generos);
-      anime.userId = req.user?.id!;          // <- salva quem criou
+      anime.userId = req.user?.id!;
       const created = await this.animeService.createAnime(anime);
-      console.log(created)
       res.status(201).json(created);
     } catch (e) {
       console.error(e);

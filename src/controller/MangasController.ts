@@ -31,8 +31,8 @@ export class MangasController {
     }
     async createManga(req: Request, res: Response): Promise<Mangas | Response> {
         try {
-            const { title, description, image } = req.body;
-            const manga = Mangas.create(title, description, image);
+            const { title, description, image, generos } = req.body;
+            const manga = Mangas.create(title, description, image, generos);
             const createdManga = await this.mangaService.createManga(manga);
             return res.status(201).json(createdManga);
         } catch (error) {
@@ -43,8 +43,8 @@ export class MangasController {
     async atualizarManga(req: Request, res: Response): Promise<Mangas | Response> {
         try {
             const { id } = req.params;
-            const { title, description, image } = req.body;
-            const manga = Mangas.create(title, description, image);
+            const { title, description, image, generos } = req.body;
+            const manga = Mangas.create(title, description, image, generos);
             const updatedManga = await this.mangaService.atualizarManga(id, manga);
             return res.status(200).json(updatedManga);
         } catch (error) {

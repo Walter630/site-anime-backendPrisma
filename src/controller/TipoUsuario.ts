@@ -17,7 +17,6 @@ export class TiposUsuarioController {
   /** POST /tipos-usuario */
   async criarTipoUsuario(req: Request, res: Response): Promise<Response> {
     const { nome, descricao } = req.body;
-    if (!nome) return res.status(400).json({ error: "nome é obrigatório" });
 
     try {
       const tipo = await this.service.criarTipoUsuario({ nome, descricao });

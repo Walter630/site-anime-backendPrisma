@@ -97,8 +97,5 @@ export class UserRota {
       "POST",
       this.tiposUsuarioController.criarTipoUsuario.bind(this.tiposUsuarioController),
     );
-
-   
-    
   }
 }

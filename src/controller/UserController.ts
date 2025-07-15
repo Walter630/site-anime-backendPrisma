@@ -3,11 +3,9 @@ import { UsuarioServices } from "../services/UsuarioServices";
 import { Request, Response } from "express";
 
 export class UserController {
-
     constructor(private readonly userService: UsuarioServices) {
         this.userService = userService;
     }
-
     
     async getUsers(req: Request, res: Response) {
         try {
@@ -27,7 +25,6 @@ export class UserController {
         try {
             const id = req.params.id as string;
             const user = await this.userService.buscarUsuario(id);
-            console.log(user)
             res.status(200).json(user);
         } catch (error) {
             console.log(error)
@@ -50,6 +47,7 @@ export class UserController {
             const newUser = await this.userService.criarUsuario(req.body);
             res.status(201).json(newUser);
         } catch (error) {
+            console.log(error)
             res.status(500).json({ message: "Erro ao criar usuário" });
         }
     }
@@ -61,6 +59,7 @@ export class UserController {
             const updatedUser = await this.userService.atuaizarUser(id, user);
             res.status(200).json(updatedUser);
         } catch (error) {
+            console.log(error)
             res.status(500).json({ message: "Erro ao atualizar usuário" });
         }
     }
@@ -71,6 +70,7 @@ export class UserController {
             await this.userService.deletarUser(id);
             res.status(200).json({ message: "Usuário deletado com sucesso" });
         } catch (error) {
+            console.log(error)
             res.status(500).json({ message: "Erro ao deletar usuário" });
         }
     }

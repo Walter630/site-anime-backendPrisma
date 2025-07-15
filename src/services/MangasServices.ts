@@ -21,6 +21,7 @@ export class MangasServices {
                     title: criar.title,
                     image: criar.image,
                     description: criar.description,
+                    generos: criar.generos,
                 }
             });
             

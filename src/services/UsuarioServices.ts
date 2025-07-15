@@ -37,7 +37,6 @@ export class UsuarioServices {
             if(!senhaCript){
                 throw new Error('Senha incorreta');
             }
-            
                         
             const gerarToken = createAcessToken({ id: usuario.id, email: usuario.email })
             const gerarRefreshToken = refreshToken({id: usuario.id, email: usuario.email})
@@ -57,7 +56,6 @@ export class UsuarioServices {
     async listar(): Promise<User[]> {
         try{
             const usuarios = await this.usuarioRepo.listar();
-            
             return usuarios;
             } catch (error) {
                 console.error(error);
@@ -91,7 +89,6 @@ export class UsuarioServices {
         try{
             const atualizado = await this.usuarioRepo.atualizar(id, user);
             return atualizado as unknown as User;
-
         }catch(err){
             console.log(err)
             throw new Error('Erro ao atualizar usuario')

@@ -10,7 +10,7 @@ export type AnimesProps = {
     dataCreateAt: Date,
     dataUpdateAt: Date,
     userId?: string,
-
+    
     generos: Generos[]
     // favoritos: Favoritos[]
     // comentarios: Comentarios[]

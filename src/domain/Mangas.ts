@@ -18,7 +18,7 @@ export type MangasProps = {
 export class Mangas {
     constructor(private props: MangasProps) {}
 
-    public static create(title: string, description: string, image: string): Mangas {
+    public static create(title: string, description: string, image: string, generos: Generos[]): Mangas {
         return new Mangas({
             id: '',
             title,
@@ -26,6 +26,7 @@ export class Mangas {
             image,
             createdAt: new Date(),
             updatedAt: new Date(),
+            generos,
         })
     }
 
